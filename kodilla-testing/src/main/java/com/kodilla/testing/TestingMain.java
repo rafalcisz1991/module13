@@ -19,7 +19,7 @@ public class TestingMain {
         int b = 4;
         Calculator calculator = new Calculator(a,b);
 
-        int addResult = calculator.getAddResult();
+        int addResult = calculator.addingNumbers();
 
         if (addResult == (a + b)){
             System.out.println("Test of Calculator Class, adding given numbers: OK!");
@@ -27,7 +27,7 @@ public class TestingMain {
            System.out.println("Calculator class does add numbers correctly");
         }
 
-        int subtractResult = calculator.getSubtractionResult();
+        int subtractResult = calculator.subtractingNumbers();
 
         if (subtractResult == (a-b)) {
             System.out.println("Test of Calculator Class, subtracting given numbers: OK!");

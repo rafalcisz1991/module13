@@ -20,13 +20,7 @@ public class Calculator {
         return subtractionResult;
     }
 
-    public int getAddResult () {
-        return addingNumbers();
-    }
 
-    public int getSubtractionResult(){
-        return subtractingNumbers();
-    }
 }
 
 
