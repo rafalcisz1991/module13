@@ -13,11 +13,13 @@ public class Calculator {
     public int addingNumbers() {
         int addResult = a + b;
         return addResult;
+
     }
 
     public int subtractingNumbers() {
         int subtractionResult = a - b;
         return subtractionResult;
+
     }
 
 

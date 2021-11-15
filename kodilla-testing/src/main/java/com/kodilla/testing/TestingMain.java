@@ -15,13 +15,12 @@ public class TestingMain {
             System.out.println("Error");
         }
         // my next Test
-        int a = 7;
-        int b = 4;
-        Calculator calculator = new Calculator(a,b);
+
+        Calculator calculator = new Calculator(7,4);
 
         int addResult = calculator.addingNumbers();
 
-        if (addResult == (a + b)){
+        if (addResult == 11){
             System.out.println("Test of Calculator Class, adding given numbers: OK!");
         } else {
            System.out.println("Calculator class does add numbers correctly");
@@ -29,7 +28,7 @@ public class TestingMain {
 
         int subtractResult = calculator.subtractingNumbers();
 
-        if (subtractResult == (a-b)) {
+        if (subtractResult == 5) {
             System.out.println("Test of Calculator Class, subtracting given numbers: OK!");
         } else {
             System.out.println("Calculator class does not subtract numbers correctly");
