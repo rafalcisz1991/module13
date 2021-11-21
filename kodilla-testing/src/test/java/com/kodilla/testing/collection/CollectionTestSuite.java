@@ -35,6 +35,9 @@ public class CollectionTestSuite {
         //Given
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
         //When
+        int comparableNumber = 0;
+        int listSize = (exterminator.exterminate()).size();
+
 
 
     }
