@@ -1,17 +1,19 @@
+/*
+
 package com.kodilla.testing.collections;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OddNumbersExterminator {
+class listOfNumbers {
     List <Integer> myList = new ArrayList<>();
     for (int n = 0; n<50; n++){
         myList.add(n*2);
+}
 
-    }
+public class OddNumbersExterminator {
 
-
-    public List<Integer> exterminate (List < Integer > numbers) {
+    public List<Integer> exterminate(List<Integer> numbers) {
 
         List<Integer> roundNumbers = new ArrayList<>();
         List<Integer> oddNumbers = new ArrayList<>();
@@ -20,12 +22,13 @@ public class OddNumbersExterminator {
             if ((myList.get(i)) % 2 == 0) {
                 roundNumbers.add(i);
             } else {
-               oddNumbers.add(i);
+                oddNumbers.add(i);
             }
         }
         return roundNumbers;
     }
 }
+*/
 
 
 

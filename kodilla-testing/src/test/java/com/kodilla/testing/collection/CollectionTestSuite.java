@@ -1,3 +1,5 @@
+/*
+
 package com.kodilla.testing.collection;
 
 import com.kodilla.testing.collections.OddNumbersExterminator;
@@ -36,7 +38,7 @@ public class CollectionTestSuite {
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
         //When
         int comparableNumber = 0;
-        int listSize = (exterminator.exterminate()).size();
+        int listSize = (exterminator.exterminate().size();
 
 
 
@@ -52,3 +54,4 @@ public class CollectionTestSuite {
 
 
 }
+*/
