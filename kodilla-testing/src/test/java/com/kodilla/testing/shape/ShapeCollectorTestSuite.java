@@ -44,11 +44,11 @@ public class ShapeCollectorTestSuite {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
             //When
-            shapeCollector.addFigure(new Circle());
-            shapeCollector.addFigure(new Triangle());
-            shapeCollector.addFigure(new Square());
+            shapeCollector.removeFigure(new Circle());
+            shapeCollector.removeFigure(new Triangle());
+            shapeCollector.removeFigure(new Square());
             //Then
-            Assertions.assertEquals(3, shapeCollector.getFigure());
+            Assertions.assertEquals(0, shapeCollector.getFigure());
 
 
     }
