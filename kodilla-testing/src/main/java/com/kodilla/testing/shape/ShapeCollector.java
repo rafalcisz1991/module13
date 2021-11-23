@@ -7,28 +7,28 @@ public class ShapeCollector {
 
     private Shape shape;
 
-    public ShapeCollector  (Shape shape) {
+    public ShapeCollector(Shape shape) {
 
         this.shape = shape;
     }
 
-        private List<Shape> shapes = new ArrayList<>();
+    private List<Shape> shapes = new ArrayList<>();
 
 
-        void addFigure (Shape shape){
-
-    }
-
-        void removeFigure (Shape shape){
+    void addFigure(Shape shape) {
 
     }
 
-        void getFigure ( int n){
+    void removeFigure(Shape shape) {
 
     }
 
-        void showFigure () {
+    void getFigure(int n) {
 
     }
+
+    void showFigure() {
+
     }
 }
+
