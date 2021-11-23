@@ -5,7 +5,11 @@ import java.util.List;
 
 public class ShapeCollector {
 
-    public ShapeCollector shapeCollector () {
+    private Shape shape;
+
+    public ShapeCollector shapeCollector (Shape shape) {
+
+        this.shape = shape;
 
         private List<Shape> shapes = new ArrayList<>();
 

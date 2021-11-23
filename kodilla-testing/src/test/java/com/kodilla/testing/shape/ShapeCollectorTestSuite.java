@@ -50,6 +50,20 @@ public class ShapeCollectorTestSuite {
             //Then
             Assertions.assertEquals(0, shapeCollector.getFigure());
 
-
     }
+
+        @Test
+        void testRemoveFigure() {
+            //Given
+            ShapeCollector shapeCollector = new ShapeCollector();
+            //When
+            shapeCollector.removeFigure(new Circle());
+            shapeCollector.removeFigure(new Triangle());
+            shapeCollector.removeFigure(new Square());
+            //Then
+            Assertions.assertEquals(0, shapeCollector.getFigure());
+
+        }
+
+
 }
