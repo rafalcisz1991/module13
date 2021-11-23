@@ -27,7 +27,7 @@ public class ShapeCollector {
 
     }
 
-    void showFigure() {
+    void showFigures() {
 
     }
 }
