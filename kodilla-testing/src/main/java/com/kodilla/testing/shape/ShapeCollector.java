@@ -7,9 +7,10 @@ public class ShapeCollector {
 
     private Shape shape;
 
-    public ShapeCollector shapeCollector (Shape shape) {
+    public ShapeCollector  (Shape shape) {
 
         this.shape = shape;
+    }
 
         private List<Shape> shapes = new ArrayList<>();
 
