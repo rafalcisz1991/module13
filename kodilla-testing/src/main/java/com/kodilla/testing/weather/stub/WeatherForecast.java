@@ -27,8 +27,6 @@ public class WeatherForecast {
         Map<String, Double> resultMap = new HashMap<>();
 
         int totalTemperature = 0;
-        int amountOfReadings = resultMap.size();
-        int averageTemperature = totalTemperature / amountOfReadings;
 
         for (Map.Entry<String, Double> averageTemperatures : temperatures.getTemperatures().entrySet()) {
             //calculating average temperature
@@ -36,15 +34,18 @@ public class WeatherForecast {
             resultMap.put(averageTemperatures.getKey(), averageTemperatures.getValue());
             totalTemperature += averageTemperatures.getValue();
         }
+        int amountOfReadings = resultMap.size();
+        int averageTemperature = totalTemperature / amountOfReadings;
         return averageTemperature;
     }
 
     // moja metoda wyznaczania mediany
 
-    public int calculateMedianTemperature(){
+    public double calculateMedianTemperature(){
         Map<String, Double> resultMap = new HashMap<>();
         List<Double> temperatureList = new ArrayList<>();
-        int medianTemperature;
+        double medianTemperature;
+        int middleValue;
 
         for (Map.Entry<String, Double> averageTemperatures : temperatures.getTemperatures().entrySet()) {
 
@@ -53,13 +54,24 @@ public class WeatherForecast {
         }
 
         temperatureList.sort(Comparator.naturalOrder());
+        if (temperatureList.size() % 2 == 0){
+            medianTemperature = (temperatureList.get(temperatureList.size()/2) + (temperatureList.get(temperatureList.size()/2) +1))/2;
+        } else {
+            middleValue = ((temperatureList.size())/2) + 1;
+            medianTemperature = (temperatureList.get(middleValue));
+
+        }
+
+        return medianTemperature;
+
+
         /*
 
         Collections.sort(temperatureList);
 
          */
 
-    }
+
     return medianTemperature;
 }
 
