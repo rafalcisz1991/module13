@@ -53,6 +53,11 @@ public class WeatherForecast {
         }
 
         temperatureList.sort(Comparator.naturalOrder());
+        /*
+
+        Collections.sort(temperatureList);
+
+         */
 
     }
     return medianTemperature;
