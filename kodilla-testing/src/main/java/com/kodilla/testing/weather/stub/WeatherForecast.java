@@ -39,7 +39,7 @@ public class WeatherForecast {
         return averageTemperature;
     }
 
-    // moja metoda wyznaczania miediany
+    // moja metoda wyznaczania mediany
 
     public int calculateMedianTemperature(){
         Map<String, Double> resultMap = new HashMap<>();
@@ -53,7 +53,6 @@ public class WeatherForecast {
         }
 
         temperatureList.sort(Comparator.naturalOrder());
-
 
     }
     return medianTemperature;
