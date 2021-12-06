@@ -37,7 +37,7 @@ public class CollectionTestSuite {
 
     @DisplayName(
             "Even numbers, selected from an automatically created list of numbers (varying 0-10), " +
-                    "will be compared to a manually created list of even numbers - ranger (varying 0-10)"
+                    "will be compared to a manually created list of even numbers (varying 0-10)"
     )
 
 
