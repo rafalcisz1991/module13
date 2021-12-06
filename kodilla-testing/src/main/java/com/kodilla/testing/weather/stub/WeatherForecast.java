@@ -23,7 +23,7 @@ public class WeatherForecast {
     }
     // moja metoda liczenia średniej
 
-    public int calculateAverageTemperature(){
+    public int calculateAverageTemperature() {
         Map<String, Double> resultMap = new HashMap<>();
 
         int totalTemperature = 0;
@@ -41,7 +41,7 @@ public class WeatherForecast {
 
     // moja metoda wyznaczania mediany
 
-    public double calculateMedianTemperature(){
+    public double calculateMedianTemperature() {
         Map<String, Double> resultMap = new HashMap<>();
         List<Double> temperatureList = new ArrayList<>();
         double medianTemperature;
@@ -53,26 +53,18 @@ public class WeatherForecast {
             temperatureList.add(averageTemperatures.getValue());
         }
 
-        temperatureList.sort(Comparator.naturalOrder());
-        if (temperatureList.size() % 2 == 0){
-            medianTemperature = (temperatureList.get(temperatureList.size()/2) + (temperatureList.get(temperatureList.size()/2) +1))/2;
-        } else {
-            middleValue = ((temperatureList.size())/2) + 1;
-            medianTemperature = (temperatureList.get(middleValue));
+        Collections.sort(temperatureList);
 
+        if (temperatureList.size() % 2 == 0) {
+            medianTemperature =(temperatureList.get(temperatureList.size() / 2) + (temperatureList.get(temperatureList.size() / 2) - 1)) / 2;
+        } else {
+            middleValue = ((temperatureList.size()) / 2) - 1;
+            medianTemperature = temperatureList.get(middleValue);
+            //medianTemperature = temperatureList.get(((temperatureList.size())/2) + 1);
         }
 
         return medianTemperature;
-
-
-        /*
-
-        Collections.sort(temperatureList);
-
-         */
-
-
-    return medianTemperature;
+    }
 }
 
 

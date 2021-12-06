@@ -1,5 +1,6 @@
-/*
 
+
+/*
 package com.kodilla.testing.shape;
 
 import org.junit.jupiter.api.*;
@@ -49,18 +50,18 @@ public class ShapeCollectorTestSuite {
             //When
             boolean result = shapeCollector.removeFigure(new Circle());
 
-            /*
+
             shapeCollector.removeFigure(new Triangle());
             shapeCollector.removeFigure(new Square());
-            */
-            //Then
-            //Assertions.assertTrue(result);
 
-     //   }
+            Then
+            Assertions.assertTrue(result);
 
-/*
-        @Test
-        void testGetShowFigures() {
+              }
+
+
+       @Test
+        void testGetShowFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
             //When
@@ -71,10 +72,13 @@ public class ShapeCollectorTestSuite {
             Assertions.assertEquals(0, shapeCollector.getFigure());
 
         }
+        }
     }
 }
-
 */
+
+
+
 
 
 
