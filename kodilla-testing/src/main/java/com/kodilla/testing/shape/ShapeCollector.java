@@ -23,10 +23,10 @@ public class ShapeCollector {
     public int getListSize(){
         return shapes.size();
     }
-
+/*
     public String showFigures() {
         return
-    }
+    }*/
 }
 
 
