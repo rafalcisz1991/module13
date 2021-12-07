@@ -30,7 +30,7 @@ public class ShapeCollectorTestSuite {
     }
     @AfterEach
     public void afterEveryTest(){
-        testCounter++;
+
         System.out.println("Test nr: " + testCounter + " executed correctly!");
     }
 
