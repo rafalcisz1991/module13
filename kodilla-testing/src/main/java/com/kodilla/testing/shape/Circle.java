@@ -18,4 +18,11 @@ public class Circle implements Shape{
     public String toString () {
         return shapeName + shapeField;
     }
+
+    @Override
+    public boolean equals(Object o){
+        Circle e = (Circle) o;
+        return (shapeName.equals(e.getShapeName()) && (shapeField == getField()));
+
+    }
 }

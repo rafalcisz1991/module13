@@ -35,20 +35,19 @@ public class ShapeCollectorTestSuite {
     }
 
     @Nested
-    @DisplayName("Tests for Square")
+    @DisplayName("Tests for different shapes")
     class TestFigures {
         @Test
         void testAddFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Shape circle = new Circle();
-            shapeCollector.addFigure(circle);
+            shapeCollector.addFigure(new Circle());
 
             //When
-            Shape expectedResult = circle;
+            Shape expectedResult = new Circle();
 
             //Then
-            Assertions.assertEquals(circle, shapeCollector.getFigure(0));
+            Assertions.assertEquals(expectedResult, shapeCollector.getFigure(0));
 
         }
 
@@ -71,12 +70,14 @@ public class ShapeCollectorTestSuite {
         void testShowFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Shape triangle = new Triangle();
-            shapeCollector.addFigure(triangle);
+            shapeCollector.addFigure(new Triangle());
+            shapeCollector.addFigure(new Circle());
+            shapeCollector.addFigure(new Square());
+
 
             //When
            String result = shapeCollector.showFigures();
-           String expectedResult ="Triangle, 55";
+           String expectedResult ="Following shapes (and its fields) are: Triangle(55), Circle(20), Square(40).";
 
             //Then
            Assertions.assertTrue(result.equals(expectedResult));

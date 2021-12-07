@@ -14,8 +14,14 @@ public class Square implements Shape {
         return shapeField;
 
     }
+
     @Override
-    public String toString () {
+    public String toString() {
         return shapeName + shapeField;
+    }
+
+    public boolean equals(Object o) {
+        Square e = (Square) o;
+        return (shapeName.equals(e.getShapeName()) && (shapeField == getField()));
     }
 }
