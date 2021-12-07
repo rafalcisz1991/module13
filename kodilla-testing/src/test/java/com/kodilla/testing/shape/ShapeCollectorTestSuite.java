@@ -41,14 +41,13 @@ public class ShapeCollectorTestSuite {
         void testAddFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            shapeCollector.addFigure(new Circle());
 
             //When
-            Shape expectedResult = new Circle();
+            shapeCollector.addFigure(new Circle());
 
             //Then
+            Shape expectedResult = new Circle();
             Assertions.assertEquals(expectedResult, shapeCollector.getFigure(0));
-
         }
 
         @Test
@@ -77,9 +76,10 @@ public class ShapeCollectorTestSuite {
 
             //When
            String result = shapeCollector.showFigures();
-           String expectedResult ="Following shapes (and its fields) are: Triangle(55), Circle(20), Square(40).";
+
 
             //Then
+           String expectedResult ="Following shapes (and its fields) are: Triangle(55), Circle(20), Square(40).";
            Assertions.assertTrue(result.equals(expectedResult));
         }
 
