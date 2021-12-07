@@ -20,13 +20,18 @@ public class ShapeCollectorTestSuite {
 
     @AfterAll
     public static void afterAllTests() {
-        System.out.println("Tests are finished");
+        System.out.println("All tests are finished");
     }
 
     @BeforeEach
     public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test nr: " + testCounter);
+    }
+    @AfterEach
+    public void afterEveryTest(){
+        testCounter++;
+        System.out.println("Test nr: " + testCounter + " executed correctly!");
     }
 
     @Nested
@@ -36,12 +41,14 @@ public class ShapeCollectorTestSuite {
         void testAddFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
+            Shape circle = new Circle();
+            shapeCollector.addFigure(circle);
 
             //When
-            shapeCollector.addFigure(new Circle());
+            Shape expectedResult = circle;
 
             //Then
-            Assertions.assertEquals(1, shapeCollector.getListSize());
+            Assertions.assertEquals(circle, shapeCollector.getFigure(0));
 
         }
 
