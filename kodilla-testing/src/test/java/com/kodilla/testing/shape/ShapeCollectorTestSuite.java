@@ -33,12 +33,11 @@ public class ShapeCollectorTestSuite {
         void testAddFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            //When
             shapeCollector.addFigure(new Circle());
-            shapeCollector.addFigure(new Triangle());
-            shapeCollector.addFigure(new Square());
+            //When
+            Shape expectedResult = new Circle();
             //Then
-            Assertions.assertEquals(3, shapeCollector.getFigure());
+            Assertions.assertEquals(expectedResult, shapeCollector.getFigure(0));
 
         }
 
@@ -46,24 +45,21 @@ public class ShapeCollectorTestSuite {
         void testRemoveFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            shapeCollector.addFigure(new Circle());
+            shapeCollector.addFigure(new Square());
+
             //When
-            boolean result = shapeCollector.removeFigure(new Circle());
-
-
-            shapeCollector.removeFigure(new Triangle());
             shapeCollector.removeFigure(new Square());
+            int result = shapeCollector.getListSize();
 
-            Then
-            Assertions.assertTrue(result);
-
-              }
-
+            //Then
+            Assertions.assertEquals(0, result);
+        }
 
        @Test
-        void testGetShowFigure() {
+        void testShowFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
+            shapeCollector.
             //When
             shapeCollector.removeFigure(new Circle());
             shapeCollector.removeFigure(new Triangle());

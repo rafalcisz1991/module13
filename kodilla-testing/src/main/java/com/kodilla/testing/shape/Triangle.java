@@ -14,4 +14,8 @@ public class Triangle implements Shape{
         return shapeField;
 
     }
+    @Override
+    public String toString () {
+        return shapeName + "" + shapeField;
+    }
 }

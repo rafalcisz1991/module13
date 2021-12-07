@@ -9,22 +9,23 @@ public class ShapeCollector {
     private List<Shape> shapes = new ArrayList<>();
 
     public void addFigure(Shape shape) {
-
         shapes.add(shape);
     }
 
     public void removeFigure(Shape shape) {
-
         shapes.remove(shape);
     }
 
     public Shape getFigure(int n) {
-
        return shapes.get(n);
     }
-    @Override
-    public String showFigures(Shape shape) {
-        return "Given shape is " + shape.getShapeName() + "," + "while its field is: " + shape.getField();
+
+    public int getListSize(){
+        return shapes.size();
+    }
+
+    public void showFigures() {
+        return (shapes.get(0)).getShapeName() + ", " + shape.getField();
 
     }
 }
