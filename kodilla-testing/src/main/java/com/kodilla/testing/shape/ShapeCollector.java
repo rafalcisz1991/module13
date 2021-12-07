@@ -25,7 +25,7 @@ public class ShapeCollector {
     }
 
     public String showFigures() {
-        return
+        return (shapes.get(0)).getShapeName() + ", " + (shapes.get(0)).getField();
     }
 }
 

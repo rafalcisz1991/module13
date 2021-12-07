@@ -65,13 +65,14 @@ public class ShapeCollectorTestSuite {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
             Shape triangle = new Triangle();
-            shapeCollector.
+            shapeCollector.addFigure(triangle);
 
             //When
+           String result = shapeCollector.showFigures();
+           String expectedResult ="Triangle, 55";
 
             //Then
-
-
+           Assertions.assertTrue(result.equals(expectedResult));
         }
 
     }
