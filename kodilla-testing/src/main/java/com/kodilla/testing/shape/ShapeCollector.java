@@ -24,7 +24,7 @@ public class ShapeCollector {
     }
     @Override
     public String showFigures(Shape shape) {
-        return shape.getShapeName() + shape.getField();
+        return "Given shape is " + shape.getShapeName() + "," + "while its field is: " + shape.getField();
 
     }
 }
