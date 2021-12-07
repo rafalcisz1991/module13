@@ -64,7 +64,6 @@ public class ShapeCollectorTestSuite {
             Assertions.assertEquals(0, shapeCollector.getListSize());
         }
 
-
        @Test
         void testShowFigure() {
             //Given
@@ -73,16 +72,13 @@ public class ShapeCollectorTestSuite {
             shapeCollector.addFigure(new Circle());
             shapeCollector.addFigure(new Square());
 
-
             //When
            String result = shapeCollector.showFigures();
-
 
             //Then
            String expectedResult ="Following shapes (and its fields) are: Triangle(55), Circle(20), Square(40).";
            Assertions.assertTrue(result.equals(expectedResult));
         }
-
     }
 }
 
