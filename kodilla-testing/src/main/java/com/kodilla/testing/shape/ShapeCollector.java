@@ -24,9 +24,8 @@ public class ShapeCollector {
         return shapes.size();
     }
 
-    public void showFigures() {
-        return (shapes.get(0)).getShapeName() + ", " + shape.getField();
-
+    public String showFigures() {
+        return
     }
 }
 
