@@ -56,11 +56,11 @@ public class ShapeCollectorTestSuite {
         void testRemoveFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Shape circle = new Circle();
-            shapeCollector.addFigure(circle);
+            Shape square = new Square();
+            shapeCollector.addFigure(square);
 
             //When
-            shapeCollector.removeFigure(circle);
+            shapeCollector.removeFigure(square);
 
             //Then
             Assertions.assertEquals(0, shapeCollector.getListSize());
