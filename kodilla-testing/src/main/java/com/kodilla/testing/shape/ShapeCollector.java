@@ -23,8 +23,8 @@ public class ShapeCollector {
        return shapes.get(n);
     }
     @Override
-    public String showFigures() {
-
+    public String showFigures(Shape shape) {
+        return shape.getShapeName() + shape.getField();
 
     }
 }
