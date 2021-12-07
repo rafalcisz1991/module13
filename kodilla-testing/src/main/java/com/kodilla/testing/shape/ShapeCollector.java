@@ -8,24 +8,24 @@ public class ShapeCollector {
 
     private List<Shape> shapes = new ArrayList<>();
 
+    public void addFigure(Shape shape) {
 
-    void addFigure(Shape shape) {
-
+        shapes.add(shape);
     }
 
-    void removeFigure(Shape shape) {
+    public void removeFigure(Shape shape) {
 
+        shapes.remove(shape);
     }
 
-    Shape getFigure(int n) {
+    public Shape getFigure(int n) {
 
-        //return get.
-
+       return shapes.get(n);
     }
+    @Override
+    public String showFigures() {
 
-    void showFigures() {
 
-        //String - zwraca wsyzstkie informacje o kształcie
     }
 }
 
