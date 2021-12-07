@@ -1,4 +1,4 @@
-/*
+
 package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
@@ -28,5 +28,5 @@ public class ShapeCollector {
         //String - zwraca wsyzstkie informacje o kształcie
     }
 }
-*/
+
 
