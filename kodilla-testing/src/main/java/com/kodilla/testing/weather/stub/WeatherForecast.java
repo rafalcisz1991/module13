@@ -27,15 +27,12 @@ public class WeatherForecast {
     public double calculateAverageTemperature() {
 
         double totalTemperature = 0;
-        int size = 0;
 
         for (Map.Entry<String, Double> averageTemperatures : temperatures.getTemperatures().entrySet()) {
-            //calculating average temperature
-
             totalTemperature += averageTemperatures.getValue();
-            size++;
         }
-        double averageTemperature = totalTemperature / size;
+
+        double averageTemperature = totalTemperature / temperatures.getTemperatures().size();
         return averageTemperature;
     }
 
