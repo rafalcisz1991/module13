@@ -25,23 +25,23 @@ public class WeatherForecast {
     // moja metoda liczenia średniej
 
     public double calculateAverageTemperature() {
-        List<Double> temperatureList = new ArrayList<>();
 
         double totalTemperature = 0;
+        int size = 0;
 
         for (Map.Entry<String, Double> averageTemperatures : temperatures.getTemperatures().entrySet()) {
             //calculating average temperature
-            temperatureList.add(averageTemperatures.getValue());
+
             totalTemperature += averageTemperatures.getValue();
+            size++;
         }
-        double averageTemperature = totalTemperature / temperatureList.size();
+        double averageTemperature = totalTemperature / size;
         return averageTemperature;
     }
 
     // moja metoda wyznaczania mediany
 
     public double calculateMedianTemperature() {
-
         List<Double> temperatureList = new ArrayList<>();
         double medianTemperature;
         int middleValue;
