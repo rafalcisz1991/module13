@@ -1,4 +1,5 @@
 package com.kodilla.testing.weather.stub;
+import com.kodilla.testing.weather.stub.Temperatures;
 
 import java.util.*;
 
@@ -24,32 +25,29 @@ public class WeatherForecast {
     // moja metoda liczenia średniej
 
     public double calculateAverageTemperature() {
-        Map<String, Double> resultMap = new HashMap<>();
+        List<Double> temperatureList = new ArrayList<>();
 
         double totalTemperature = 0;
 
         for (Map.Entry<String, Double> averageTemperatures : temperatures.getTemperatures().entrySet()) {
             //calculating average temperature
-
-            resultMap.put(averageTemperatures.getKey(), averageTemperatures.getValue());
+            temperatureList.add(averageTemperatures.getValue());
             totalTemperature += averageTemperatures.getValue();
         }
-        double amountOfReadings = resultMap.size();
-        double averageTemperature = totalTemperature / amountOfReadings;
+        double averageTemperature = totalTemperature / temperatureList.size();
         return averageTemperature;
     }
 
     // moja metoda wyznaczania mediany
 
     public double calculateMedianTemperature() {
-        Map<String, Double> resultMap = new HashMap<>();
+
         List<Double> temperatureList = new ArrayList<>();
         double medianTemperature;
         int middleValue;
 
         for (Map.Entry<String, Double> averageTemperatures : temperatures.getTemperatures().entrySet()) {
 
-            resultMap.put(averageTemperatures.getKey(), averageTemperatures.getValue());
             temperatureList.add(averageTemperatures.getValue());
         }
 
