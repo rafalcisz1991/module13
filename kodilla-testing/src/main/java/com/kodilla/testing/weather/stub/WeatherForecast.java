@@ -23,10 +23,10 @@ public class WeatherForecast {
     }
     // moja metoda liczenia średniej
 
-    public int calculateAverageTemperature() {
+    public double calculateAverageTemperature() {
         Map<String, Double> resultMap = new HashMap<>();
 
-        int totalTemperature = 0;
+        double totalTemperature = 0;
 
         for (Map.Entry<String, Double> averageTemperatures : temperatures.getTemperatures().entrySet()) {
             //calculating average temperature
@@ -34,8 +34,8 @@ public class WeatherForecast {
             resultMap.put(averageTemperatures.getKey(), averageTemperatures.getValue());
             totalTemperature += averageTemperatures.getValue();
         }
-        int amountOfReadings = resultMap.size();
-        int averageTemperature = totalTemperature / amountOfReadings;
+        double amountOfReadings = resultMap.size();
+        double averageTemperature = totalTemperature / amountOfReadings;
         return averageTemperature;
     }
 
@@ -58,11 +58,9 @@ public class WeatherForecast {
         if (temperatureList.size() % 2 == 0) {
             medianTemperature =(temperatureList.get(temperatureList.size() / 2) + (temperatureList.get(temperatureList.size() / 2) - 1)) / 2;
         } else {
-            middleValue = ((temperatureList.size()) / 2) - 1;
+            middleValue = ((temperatureList.size()) / 2);
             medianTemperature = temperatureList.get(middleValue);
-            //medianTemperature = temperatureList.get(((temperatureList.size())/2) + 1);
         }
-
         return medianTemperature;
     }
 }
