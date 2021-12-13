@@ -82,15 +82,18 @@ public class CollectionTestSuite {
         //When
         List<Integer> result = exterminator.exterminate(myList);
 
+        //Then
+
+        Assertions.assertTrue(result.equals(expectedResult()));
+    }
+
+    private List<Integer> expectedResult() {
         List<Integer> expectedResult = new ArrayList<>();
         expectedResult.add(0);
         expectedResult.add(2);
         expectedResult.add(4);
         expectedResult.add(6);
         expectedResult.add(8);
-
-
-        //Then
-        Assertions.assertTrue(result.equals(expectedResult));
+        return expectedResult;
     }
 }
