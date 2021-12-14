@@ -23,11 +23,12 @@ public class BookLibrary {
 
     public List <Book> listBooksInHandsOf(LibraryUser libraryUser){
         List <Book> booksInHandsList = new ArrayList<Book>();
-        if (libraryUser == null) return booksInHandsList;
+        if (libraryUser == null) {
+            return booksInHandsList;
+        }
 
 
-
-
+        return booksInHandsList;
     }
 
 

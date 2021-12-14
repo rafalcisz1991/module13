@@ -109,7 +109,6 @@ import static org.mockito.Mockito.*;
         //When
         List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(libraryUser1);
 
-
         //Then
         assertEquals(0, theListOfBooks0.size());
 
