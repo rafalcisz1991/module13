@@ -104,7 +104,7 @@ import static org.mockito.Mockito.*;
         LibraryUser libraryUser2 = new LibraryUser("Maria", "Zielna", "54321");
         LibraryUser libraryUser3 = new LibraryUser("Anna", "Kowalska", "67890");
 
-        when(libraryDatabaseMock.listBooksInHandsOf(null)).thenReturn(resultListOfBooks0InHandsOf);
+        //when(libraryDatabaseMock.listBooksInHandsOf(null)).thenReturn(resultListOfBooks0InHandsOf);
 
         //When
         List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(libraryUser1);

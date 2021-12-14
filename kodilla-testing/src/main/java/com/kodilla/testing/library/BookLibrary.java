@@ -26,6 +26,7 @@ public class BookLibrary {
         if (libraryUser == null) {
             return booksInHandsList;
         }
+        //List<Book> newBookInHandsList
 
 
         return booksInHandsList;
