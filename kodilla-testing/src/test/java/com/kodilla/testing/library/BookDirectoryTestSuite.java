@@ -96,15 +96,16 @@ import static org.mockito.Mockito.*;
     void testListBooksInHandsOf0Books(){
         //Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-
+        List<Book> resultListOf0BookInHandsOf = new ArrayList<>();
         List<Book> resultListOf1BookInHandsOf = generateListOfNBooks(1);
         List<Book> resultListOf5BooksInHandsOf = generateListOfNBooks(5);
-        LibraryUser libraryUser1 = null;
+        //LibraryUser libraryUser1 = null;
+        when(libraryDatabaseMock.listBooksInHandsOf(null)).thenReturn(resultListOf0BookInHandsOf);
         when(libraryDatabaseMock.listBooksInHandsOf(new LibraryUser("Maria", "Zielna", "54321"))).thenReturn(resultListOf1BookInHandsOf);
         when(libraryDatabaseMock.listBooksInHandsOf(new LibraryUser("Anna", "Kowalska", "67890"))).thenReturn(resultListOf5BooksInHandsOf);
 
         //When
-        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(libraryUser1);
+        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(null);
         List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOf(new LibraryUser("Maria", "Zielna", "54321"));
         List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOf(new LibraryUser("Anna", "Kowalska", "67890"));
 
