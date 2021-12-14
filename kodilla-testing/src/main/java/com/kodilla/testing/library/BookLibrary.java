@@ -26,12 +26,13 @@ public class BookLibrary {
         if (libraryUser == null) {
             return booksInHandsList;
         }
-        //List<Book> newBookInHandsList
+        List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        if (libraryUser == new LibraryUser("Maria", "Zielna", "54321")) return resultList;
+        booksInHandsList = resultList;
 
-
+        List<Book> books5InHandsList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        if (libraryUser == new LibraryUser("Anna", "Kowalska", "67890")) return books5InHandsList;
+        books5InHandsList = books5InHandsList;
         return booksInHandsList;
     }
-
-
-
 }

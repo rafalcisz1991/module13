@@ -73,7 +73,6 @@ import static org.mockito.Mockito.*;
         List<Book> theListOfBooks40 = bookLibrary.listBooksWithCondition("FortyBooks");
 
         // Then
-
         assertEquals(15, theListOfBooks15.size());
         assertEquals(40, theListOfBooks40.size());
         assertEquals(0, theListOfBooks0.size());
@@ -103,19 +102,19 @@ import static org.mockito.Mockito.*;
         LibraryUser libraryUser1 = null;
         LibraryUser libraryUser2 = new LibraryUser("Maria", "Zielna", "54321");
         LibraryUser libraryUser3 = new LibraryUser("Anna", "Kowalska", "67890");
-
-
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser2)).thenReturn(resultListOf1BookInHandsOf);
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser3)).thenReturn(resultListOf5BooksInHandsOf);
 
         //When
         List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(libraryUser1);
+        List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOf(libraryUser2);
+        List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOf(libraryUser3);;
 
         //Then
         assertEquals(0, theListOfBooks0.size());
-
-
+        assertEquals(1, theListOfBooks1.size());
+        assertEquals(5, theListOfBooks5.size());
     }
-
-
 }
 
 
