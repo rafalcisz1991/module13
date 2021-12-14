@@ -111,7 +111,7 @@ import static org.mockito.Mockito.*;
 
 
         //Then
-        assertEquals(null, libraryUser1);
+        assertEquals(0, theListOfBooks0.size());
 
 
     }
