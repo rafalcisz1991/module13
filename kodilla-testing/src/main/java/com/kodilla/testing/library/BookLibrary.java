@@ -20,4 +20,16 @@ public class BookLibrary {
         bookList = resultList;
         return bookList;
     }
+
+    public List <Book> listBooksInHandsOf(LibraryUser libraryUser){
+        List <Book> booksInHandsList = new ArrayList<Book>();
+        if (libraryUser == null) return booksInHandsList;
+
+
+
+
+    }
+
+
+
 }
