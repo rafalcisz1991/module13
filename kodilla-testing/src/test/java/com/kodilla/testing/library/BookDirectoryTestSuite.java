@@ -96,7 +96,7 @@ import static org.mockito.Mockito.*;
     void testListBooksInHandsOf0Books(){
         //Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        List<Book> resultListOfBooks0InHandsOf = new ArrayList<Book>();
+
         List<Book> resultListOf1BookInHandsOf = generateListOfNBooks(1);
         List<Book> resultListOf5BooksInHandsOf = generateListOfNBooks(5);
         LibraryUser libraryUser1 = null;
@@ -108,7 +108,7 @@ import static org.mockito.Mockito.*;
         //When
         List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(libraryUser1);
         List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOf(libraryUser2);
-        List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOf(libraryUser3);;
+        List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOf(libraryUser3);
 
         //Then
         assertEquals(0, theListOfBooks0.size());
