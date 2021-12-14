@@ -25,14 +25,18 @@ public class BookLibrary {
         List <Book> booksInHandsList = new ArrayList<Book>();
         if (libraryUser == null) {
             return booksInHandsList;
+        } else {
+            List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
+            booksInHandsList = resultList;
+            return resultList;
         }
-        List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        /*List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
         if (libraryUser == new LibraryUser("Maria", "Zielna", "54321")) return resultList;
         booksInHandsList = resultList;
 
         List<Book> books5InHandsList = libraryDatabase.listBooksInHandsOf(libraryUser);
         if (libraryUser == new LibraryUser("Anna", "Kowalska", "67890")) return books5InHandsList;
-        books5InHandsList = books5InHandsList;
-        return booksInHandsList;
+        booksInHandsList = books5InHandsList;
+        return booksInHandsList;*/
     }
 }
