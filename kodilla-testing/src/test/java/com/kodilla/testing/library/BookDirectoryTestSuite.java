@@ -93,7 +93,7 @@ import static org.mockito.Mockito.*;
     }
 
     @Test
-    void testListBooksInHandsOf0Books(){
+    void testList0BooksInHandsOf(){
         //Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf0BookInHandsOf = new ArrayList<>();
