@@ -93,42 +93,46 @@ import static org.mockito.Mockito.*;
     }
 
     @Test
-    void testList0BooksInHandsOf(){
+    void testList0BooksInHandsOfUser(){
         //Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf0BookInHandsOf = new ArrayList<>();
-        when(libraryDatabaseMock.listBooksInHandsOf(new LibraryUser("Jan", "Przybysz", "44556"))).thenReturn(resultListOf0BookInHandsOf);
+        when(libraryDatabaseMock.listBooksInHandsOf(new LibraryUser("Jan", "Przybysz", "44556"))).
+                thenReturn(resultListOf0BookInHandsOf);
 
         //When
-        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(new LibraryUser("Jan", "Przybysz", "44556"));
+        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOfUser(new LibraryUser("Jan", "Przybysz", "44556"));
 
         //Then
         assertEquals(0, theListOfBooks0.size());
     }
 
     @Test
-    void testList1BookInHandsOf(){
+    void testList1BookInHandsOfUser(){
         //Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf1BookInHandsOf = generateListOfNBooks(1);
-        when(libraryDatabaseMock.listBooksInHandsOf(new LibraryUser("Maria", "Zielna", "54321"))).thenReturn(resultListOf1BookInHandsOf);
+        LibraryUser testUser1 = new LibraryUser("Maria", "Zielna", "54321");
+        when(libraryDatabaseMock.listBooksInHandsOf(testUser1)).
+                thenReturn(resultListOf1BookInHandsOf);
 
         //When
-        List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOf(new LibraryUser("Maria", "Zielna", "54321"));
+        List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOfUser(new LibraryUser("Maria", "Zielna", "54321"));
 
         //Then
         assertEquals(1, theListOfBooks1.size());
     }
 
     @Test
-    void testList5BooksInHandsOf(){
+    void testList5BooksInHandsOfUser(){
         //Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf5BooksInHandsOf = generateListOfNBooks(5);
-        when(libraryDatabaseMock.listBooksInHandsOf(new LibraryUser("Anna", "Kowalska", "67890"))).thenReturn(resultListOf5BooksInHandsOf);
+        when(libraryDatabaseMock.listBooksInHandsOf(new LibraryUser("Anna", "Kowalska", "67890"))).
+                thenReturn(resultListOf5BooksInHandsOf);
 
         //When
-        List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOf(new LibraryUser("Anna", "Kowalska", "67890"));
+        List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOfUser(new LibraryUser("Anna", "Kowalska", "67890"));
 
         //Then
         assertEquals(5, theListOfBooks5.size());
