@@ -23,27 +23,7 @@ public class BookLibrary {
 
     public List <Book> listBooksInHandsOf(LibraryUser libraryUser){
 
-        //TRZECIA WERSJA
         List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
         return resultList;
-
-        //DRUGA WERSJA
-       /* List <Book> booksInHandsList = new ArrayList<Book>();
-        if (libraryUser == null) {
-            return booksInHandsList;
-        } else {
-            List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
-            return resultList;
-        }*/
-
-        //PIERWSZA WERSJA
-        /*List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
-        if (libraryUser == new LibraryUser("Maria", "Zielna", "54321")) return resultList;
-        booksInHandsList = resultList;
-
-        List<Book> books5InHandsList = libraryDatabase.listBooksInHandsOf(libraryUser);
-        if (libraryUser == new LibraryUser("Anna", "Kowalska", "67890")) return books5InHandsList;
-        booksInHandsList = books5InHandsList;
-        return booksInHandsList;*/
     }
 }
