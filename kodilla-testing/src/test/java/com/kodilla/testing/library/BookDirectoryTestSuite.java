@@ -21,16 +21,6 @@ import static org.mockito.Mockito.*;
     @Mock
     private LibraryDatabase libraryDatabaseMock;
 
-    private @NotNull
-    List<Book> generateListOfNBooks(int booksQuantity) {
-        List<Book> resultList = new ArrayList<>();
-        for (int n = 1; n <= booksQuantity; n++) {
-            Book theBook = new Book("Title " + n, "Author " + n, 1970 + n);
-            resultList.add(theBook);
-        }
-        return resultList;
-    }
-
     @Test
     void testListBooksWithConditionsReturnList() {
         // Given
@@ -97,11 +87,11 @@ import static org.mockito.Mockito.*;
         //Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf0BookInHandsOf = new ArrayList<>();
-        when(libraryDatabaseMock.listBooksInHandsOf(new LibraryUser("Jan", "Przybysz", "44556"))).
+        when(libraryDatabaseMock.listBooksInHandsOf(testUser())).
                 thenReturn(resultListOf0BookInHandsOf);
 
         //When
-        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOfUser(new LibraryUser("Jan", "Przybysz", "44556"));
+        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOfUser(testUser());
 
         //Then
         assertEquals(0, theListOfBooks0.size());
@@ -112,12 +102,12 @@ import static org.mockito.Mockito.*;
         //Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf1BookInHandsOf = generateListOfNBooks(1);
-        LibraryUser testUser1 = new LibraryUser("Maria", "Zielna", "54321");
-        when(libraryDatabaseMock.listBooksInHandsOf(testUser1)).
+
+        when(libraryDatabaseMock.listBooksInHandsOf(testUser())).
                 thenReturn(resultListOf1BookInHandsOf);
 
         //When
-        List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOfUser(new LibraryUser("Maria", "Zielna", "54321"));
+        List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOfUser(testUser());
 
         //Then
         assertEquals(1, theListOfBooks1.size());
@@ -128,14 +118,29 @@ import static org.mockito.Mockito.*;
         //Given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf5BooksInHandsOf = generateListOfNBooks(5);
-        when(libraryDatabaseMock.listBooksInHandsOf(new LibraryUser("Anna", "Kowalska", "67890"))).
+        when(libraryDatabaseMock.listBooksInHandsOf(testUser())).
                 thenReturn(resultListOf5BooksInHandsOf);
 
         //When
-        List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOfUser(new LibraryUser("Anna", "Kowalska", "67890"));
+        List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOfUser(testUser());
 
         //Then
         assertEquals(5, theListOfBooks5.size());
+    }
+
+    private @NotNull
+    List<Book> generateListOfNBooks(int booksQuantity) {
+        List<Book> resultList = new ArrayList<>();
+        for (int n = 1; n <= booksQuantity; n++) {
+            Book theBook = new Book("Title " + n, "Author " + n, 1970 + n);
+            resultList.add(theBook);
+        }
+        return resultList;
+    }
+
+    private LibraryUser testUser (){
+        LibraryUser libraryUser = new LibraryUser("Anna", "Zielna", "12345");
+        return libraryUser;
     }
 }
 
