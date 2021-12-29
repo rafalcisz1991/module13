@@ -1,6 +1,7 @@
 package com.kodilla.testing.forum.statistics;
 
 
+import com.kodilla.testing.weather.stub.Temperatures;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -15,20 +16,19 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class StatisticsTestSuite {
 
-    @Mock
-    private Statistics statisticsMock;
+
 
     @Test
     void testAdvStatistics0Posts(){
         //Given
-        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         Statistics statisticsMock = mock(Statistics.class);
+        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
 
         //When
-        int zeroPosts = calculateStatistics.calculateAdvStatistics(testsStatistics1());
+        int quantityOfPosts = calculateStatistics.calculateAdvStatistics(testsStatistics1());
 
         //Then
-        assertEquals(0, zeroPosts);
+        assertEquals(0, quantityOfPosts);
     }
 
     @Test

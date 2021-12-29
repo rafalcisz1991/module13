@@ -24,6 +24,7 @@ class WeatherForecastTestSuite {
         void testCalculateForecastWithMock() {
             //Given
 
+
             Map<String, Double> temperaturesMap = new HashMap<>();
             temperaturesMap.put("Rzeszow", 25.5);
             temperaturesMap.put("Krakow", 26.2);

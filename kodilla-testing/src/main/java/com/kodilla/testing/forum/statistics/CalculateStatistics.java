@@ -8,18 +8,25 @@ public class CalculateStatistics {
     double averageCommentsPerUser;
     double averageCommentsPerPost;
 
-    private Statistics statistics;
+    private Statistics myStatistics;
 
-    public CalculateStatistics(Statistics statistics) {
+    public CalculateStatistics(Statistics myStatistics) {
 
-        this.statistics = statistics;
+        this.myStatistics = myStatistics;
     }
 
-    public int calculateAdvStatistics(Statistics statistics){
+    public int calculateAdvStatistics(Statistics myStatistics){
+
+        int calculatePostsCount = myStatistics.postsCount();
+        int calculateCommentsCount = myStatistics.commentsCount();
+        return calculatePostsCount;
+        return
+
 
 
 
 
 
     }
+
 }
