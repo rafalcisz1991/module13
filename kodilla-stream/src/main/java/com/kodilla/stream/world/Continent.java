@@ -17,7 +17,7 @@ public final class Continent {
        myCountries.add(country);
     }
 
-    public List getCountry(){
+    public List<Country> getCountries(){
         return myCountries;
     }
 }
