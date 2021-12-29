@@ -20,7 +20,7 @@ public class CalculateStatistics {
         int calculatePostsCount = myStatistics.postsCount();
         int calculateCommentsCount = myStatistics.commentsCount();
         return calculatePostsCount;
-        return
+        return calculateCommentsCount;
 
 
 
