@@ -15,6 +15,7 @@ public final class World {
     public BigDecimal getPeopleQuantity(){
         return myContinents.stream()
                 .flatMap(continent-> continent.getCountries().stream())
+                //.filter(country -> country.getName().startsWith("G"))
                 .map(Country::getPeopleQuantity)
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
     }

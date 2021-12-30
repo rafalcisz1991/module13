@@ -13,8 +13,11 @@ public final class Country {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public BigDecimal getPeopleQuantity(){
         return peopleQuantity;
     }
-
 }
