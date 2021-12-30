@@ -42,5 +42,6 @@ public class WorldTestSuite {
 
         //Then
         assertEquals(new BigDecimal("3965"), finalResultTotalNumberOfPeople);
+
     }
 }
