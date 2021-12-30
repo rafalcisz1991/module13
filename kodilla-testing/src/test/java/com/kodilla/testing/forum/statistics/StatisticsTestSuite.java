@@ -22,13 +22,15 @@ public class StatisticsTestSuite {
     void testAdvStatistics0Posts(){
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
+        when(statisticsMock.postsCount()).thenReturn(0);
+        when(statisticsMock.commentsCount()).
 
         //When
-        int quantityOfPosts = calculateStatistics.calculateAdvStatistics(testsStatistics1());
+        calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        assertEquals(0, quantityOfPosts);
+        assertEquals(0, calculateStatistics.getPostsCount());
     }
 
     @Test
@@ -85,108 +87,8 @@ public class StatisticsTestSuite {
         //Then
     }
 
-    private Statistics testsStatistics1(){
-        Statistics statistics = new Statistics() {
 
-            @Override
-            public List<String> usersNames() {
-                return usersNames();
-            }
 
-            @Override
-            public int postsCount() {
-                return 0;
-            }
 
-            @Override
-            public int commentsCount() {
-                return 0;
-            }
-        };
-        return statistics;
-    }
-
-    private Statistics testStatistics2(){
-        Statistics statistics = new Statistics() {
-            @Override
-            public List<String> usersNames() {
-                return null;
-            }
-
-            @Override
-            public int postsCount() {
-                return 1000;
-            }
-
-            @Override
-            public int commentsCount() {
-                return 0;
-            }
-        };
-        return statistics;
-    }
-
-    private Statistics testStatistics3(){
-        Statistics statistics = new Statistics() {
-            @Override
-            public List<String> usersNames() {
-                return null;
-            }
-
-            @Override
-            public int postsCount() {
-                return 5;
-            }
-
-            @Override
-            public int commentsCount() {
-                return 3;
-            }
-        };
-        return statistics;
-    }
-
-    private  Statistics testStatistics4(){
-        Statistics statistics = new Statistics() {
-            @Override
-            public List<String> usersNames() {
-                return null;
-            }
-
-            @Override
-            public int postsCount() {
-                return 3;
-            }
-
-            @Override
-            public int commentsCount() {
-                return 5;
-            }
-        };
-        return statistics;
-    }
-
-    private Statistics testStatistics5(){
-        Statistics statistics = new Statistics() {
-            @Override
-            public List<String> usersNames() {
-                for (int i = 0; i < 100; i++){
-                    usersNames().add("Username " + i);
-                }
-                return usersNames();
-            }
-
-            @Override
-            public int postsCount() {
-                return 0;
-            }
-
-            @Override
-            public int commentsCount() {
-                return 0;
-            }
-        };
-        return statistics;
-    }
 
 }
