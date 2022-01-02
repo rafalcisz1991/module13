@@ -14,7 +14,6 @@ public class StatisticsTestSuite {
     @Test
     void testAdvStatisticsWith0Posts() {
         //Given
-        List<String> usersList = generateListOfUsers(4);
         Statistics statisticsMock = mock(Statistics.class);
         CalculateStatistics calculateStatistics = new CalculateStatistics();
         //Mock input of suggested data: number of posts = 0
@@ -22,7 +21,7 @@ public class StatisticsTestSuite {
         //random input of rest of the data: number of comments = 10
         when(statisticsMock.commentsCount()).thenReturn(10);
         //random input of rest  of the data: number of users = 4
-        when(statisticsMock.usersNames()).thenReturn(usersList);
+        when(statisticsMock.usersNames()).thenReturn(generateListOfUsers(4));
 
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
