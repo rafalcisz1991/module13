@@ -19,7 +19,7 @@ public class StatisticsTestSuite {
 
 
     @Test
-    void testAdvStatistics0Posts() {
+    void testAdvStatisticsWith0Posts() {
         //Given
         List<String> usersList = generateListOfUsers(4);
         Statistics statisticsMock = mock(Statistics.class);
@@ -41,7 +41,7 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    void testAdvStatistics1000Posts() {
+    void testAdvStatisticsWith1000Posts() {
         //Given
 
         //When
@@ -50,7 +50,7 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    void testAdvStatistics0Comments() {
+    void testAdvStatisticsWith0Comments() {
         //Given
 
         //When
@@ -77,7 +77,7 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    void testAdvStatistics0Users() {
+    void testAdvStatisticsWith0Users() {
         //Given
 
         //When
@@ -86,7 +86,7 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    void testAdvStatistics1000Users() {
+    void testAdvStatisticsWith1000Users() {
         //Given
 
         //When
