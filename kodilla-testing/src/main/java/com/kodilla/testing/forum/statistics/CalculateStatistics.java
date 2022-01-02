@@ -3,22 +3,23 @@ package com.kodilla.testing.forum.statistics;
 import java.util.List;
 
 public class CalculateStatistics {
-    int postsCount;
-    int commentsCount;
-    int usersCount;
+    double postsCount;
+    double commentsCount;
+    double usersCount;
     double averagePostsPerUser;
     double averageCommentsPerUser;
     double averageCommentsPerPost;
+    boolean division0Condition;
 
-    public int getPostsCount() {
+    public double getPostsCount() {
         return postsCount;
     }
 
-    public int getCommentsCount() {
+    public double getCommentsCount() {
         return commentsCount;
     }
 
-    public int getUsersCount() {
+    public double getUsersCount() {
         return usersCount;
     }
 
@@ -34,23 +35,35 @@ public class CalculateStatistics {
         return averageCommentsPerPost;
     }
 
-    public void calculateAdvStatistics(Statistics myStatistics){
+    public boolean isDivision0Condition() {
+        return division0Condition;
+    }
+
+    public void calculateAdvStatistics(Statistics myStatistics) {
+        division0Condition = true;
 
         postsCount = myStatistics.postsCount();
         commentsCount = myStatistics.commentsCount();
         usersCount = myStatistics.usersNames().size();
 
-
-
-
-
-
-
-
-
-
-
-
+        if(usersCount == 0) {
+            isDivision0Condition();
+        } else {
+            averageCommentsPerUser = commentsCount / usersCount;
+        }
+        if(postsCount == 0){
+            isDivision0Condition();
+        } else {
+            averageCommentsPerPost = commentsCount/postsCount;
+        }
+        if(usersCount == 0) {
+            isDivision0Condition();
+        } else {
+            averagePostsPerUser = postsCount/usersCount;
+        }
     }
-
 }
+
+
+
+
