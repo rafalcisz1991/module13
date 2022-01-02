@@ -36,6 +36,11 @@ public class StatisticsTestSuite {
 
         //Then
         assertEquals(0, calculateStatistics.getPostsCount());
+        assertEquals(4, calculateStatistics.getUsersCount());
+        assertEquals(10, calculateStatistics.getCommentsCount());
+        assertEquals(0, calculateStatistics.getAveragePostsPerUser());
+        assertEquals(2.5, calculateStatistics.getAverageCommentsPerUser());
+        assertEquals(0, calculateStatistics.getAverageCommentsPerPost());
 
     }
 

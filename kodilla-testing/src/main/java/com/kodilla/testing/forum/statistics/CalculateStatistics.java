@@ -10,7 +10,6 @@ public class CalculateStatistics {
     double averageCommentsPerUser;
     double averageCommentsPerPost;
 
-
     public double getPostsCount() {
         return postsCount;
     }
@@ -43,14 +42,19 @@ public class CalculateStatistics {
 
         if(usersCount != 0) {
             averageCommentsPerUser = commentsCount / usersCount;
+        } else {
+            averageCommentsPerUser = 0;
         }
         if(postsCount != 0){
             averageCommentsPerPost = commentsCount/postsCount;
+        } else {
+            averageCommentsPerPost = 0;
         }
         if(commentsCount != 0) {
             averagePostsPerUser = postsCount/usersCount;
+        } else {
+            averagePostsPerUser = 0;
         }
-
     }
 }
 
