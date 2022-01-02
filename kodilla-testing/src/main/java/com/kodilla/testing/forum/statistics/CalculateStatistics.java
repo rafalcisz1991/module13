@@ -1,7 +1,5 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.util.List;
-
 public class CalculateStatistics {
     double postsCount;
     double commentsCount;
@@ -42,18 +40,15 @@ public class CalculateStatistics {
 
         if(usersCount != 0) {
             averageCommentsPerUser = commentsCount / usersCount;
+            averagePostsPerUser = postsCount / usersCount;
         } else {
             averageCommentsPerUser = 0;
+            averagePostsPerUser = 0;
         }
         if(postsCount != 0){
             averageCommentsPerPost = commentsCount/postsCount;
         } else {
             averageCommentsPerPost = 0;
-        }
-        if(commentsCount != 0) {
-            averagePostsPerUser = postsCount/usersCount;
-        } else {
-            averagePostsPerUser = 0;
         }
     }
 }
