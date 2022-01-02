@@ -160,7 +160,6 @@ public class StatisticsTestSuite {
     @Test
     void testAdvStatisticsWith1000Users() {
         //Given
-
         Statistics statisticsMock = mock(Statistics.class);
         CalculateStatistics calculateStatistics = new CalculateStatistics();
         //Mock input of suggested data: number of posts = 1000
