@@ -49,25 +49,26 @@ public class CalculateStatistics {
     }
 
     public void calculateAdvStatistics(Statistics myStatistics) {
-        division0PostsCondition = true;
-        division0CommentsCondition = true;
-        division0UsersCondition = true;
+
 
         postsCount = myStatistics.postsCount();
         commentsCount = myStatistics.commentsCount();
         usersCount = myStatistics.usersNames().size();
 
         if(usersCount == 0) {
+            division0UsersCondition = true;
             isDivision0UsersCondition();
         } else {
             averageCommentsPerUser = commentsCount / usersCount;
         }
         if(postsCount == 0){
+            division0PostsCondition = true;
             isDivision0PostsCondition();
         } else {
             averageCommentsPerPost = commentsCount/postsCount;
         }
         if(commentsCount == 0) {
+            division0CommentsCondition = true;
             isDivision0CommentsCondition();
         } else {
             averagePostsPerUser = postsCount/usersCount;

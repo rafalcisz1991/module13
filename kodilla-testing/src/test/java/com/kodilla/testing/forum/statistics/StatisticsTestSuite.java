@@ -36,7 +36,7 @@ public class StatisticsTestSuite {
 
         //Then
         assertEquals(0, calculateStatistics.getPostsCount());
-        assertTrue(calculateStatistics.isDivision0Condition());
+        assertTrue(calculateStatistics.isDivision0PostsCondition());
         assertEquals(2.5, calculateStatistics.getAverageCommentsPerUser());
     }
 
@@ -58,9 +58,9 @@ public class StatisticsTestSuite {
 
         //Then
         assertEquals(1000, calculateStatistics.getPostsCount());
-        assertTrue(calculateStatistics.isDivision0PostsCondition());
+        assertFalse(calculateStatistics.isDivision0PostsCondition());
         assertEquals(250, calculateStatistics.getAveragePostsPerUser());
-        assertEquals(100, calculateStatistics.getAverageCommentsPerPost());
+        assertEquals(0.01, calculateStatistics.getAverageCommentsPerPost());
     }
 
     @Test
