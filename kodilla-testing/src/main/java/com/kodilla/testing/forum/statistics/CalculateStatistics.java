@@ -50,7 +50,6 @@ public class CalculateStatistics {
 
     public void calculateAdvStatistics(Statistics myStatistics) {
 
-
         postsCount = myStatistics.postsCount();
         commentsCount = myStatistics.commentsCount();
         usersCount = myStatistics.usersNames().size();
