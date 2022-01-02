@@ -86,18 +86,9 @@ public class StatisticsTestSuite {
     @Test
     void testAdvStatisticsCommentsLessThenPosts() {
         //Given
-        List<String> usersList = generateListOfUsers(4);
-        Statistics statisticsMock = mock(Statistics.class);
-        CalculateStatistics calculateStatistics = new CalculateStatistics();
-        //Mock input of suggested data: number of posts = 0
-        when(statisticsMock.postsCount()).thenReturn(10);
-        //random input of rest of the data: number of comments = 10
-        when(statisticsMock.commentsCount()).thenReturn(5);
-        //random input of rest  of the data: number of users = 5
-        when(statisticsMock.usersNames()).thenReturn(usersList);
 
         //When
-        calculateStatistics.calculateAdvStatistics(statisticsMock);
+
 
         //Then
     }
@@ -114,19 +105,46 @@ public class StatisticsTestSuite {
     @Test
     void testAdvStatisticsWith0Users() {
         //Given
+        List<String> usersList = generateListOfUsers(0);
+        Statistics statisticsMock = mock(Statistics.class);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
+        //Mock input of suggested data: number of posts = 1000
+        when(statisticsMock.postsCount()).thenReturn(1000);
+        //random input of rest of the data: number of comments = 10
+        when(statisticsMock.commentsCount()).thenReturn(0);
+        //random input of rest  of the data: number of users = 0
+        when(statisticsMock.usersNames()).thenReturn(usersList);
 
         //When
+        calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
+        assertTrue(calculateStatistics.isDivision0UsersCondition());
+        assertEquals(0, calculateStatistics.getUsersCount());
     }
 
     @Test
     void testAdvStatisticsWith1000Users() {
         //Given
+        List<String> usersList = generateListOfUsers(1000);
+        Statistics statisticsMock = mock(Statistics.class);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
+        //Mock input of suggested data: number of posts = 1000
+        when(statisticsMock.postsCount()).thenReturn(1000);
+        //random input of rest of the data: number of comments = 10
+        when(statisticsMock.commentsCount()).thenReturn(50);
+        //random input of rest  of the data: number of users = 0
+        when(statisticsMock.usersNames()).thenReturn(usersList);
 
         //When
+        calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
+        assertFalse(calculateStatistics.isDivision0UsersCondition());
+        assertEquals(1000, calculateStatistics.getUsersCount());
+        assertEquals(1, calculateStatistics.getAveragePostsPerUser());
+        assertEquals(0.05, calculateStatistics.getAverageCommentsPerUser());
+
     }
 
     private List<String> generateListOfUsers(int usersCount) {
