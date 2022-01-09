@@ -11,17 +11,14 @@ public class ArrayOperationsTestSuite {
     void testGetAverage(){
         //Given
         int numbers[] = new int[20];
-        int sumResult = 0;
         for(int i = 0; i < numbers.length; i++) {
             numbers[i] = i + 1;
-            sumResult = sumResult + (i + 1);
         }
-        double expectedAverage = sumResult / numbers.length;
 
         //When
         double resultAverage = ArrayOperations.getAverage(numbers);
 
         //Then
-        assertEquals(expectedAverage, resultAverage);
+        assertEquals(10, resultAverage);
     }
 }
