@@ -31,7 +31,7 @@ public class RpsRunner {
         System.out.println("'2' for Paper");
         System.out.println("'3' for Scissors");
 
-        public void loopGame(){
+
             while (!end) {
 
                 List<String> playerResults = new ArrayList<>();
