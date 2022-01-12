@@ -104,6 +104,8 @@ public class BoardTestSuite {
         double averageTime = daysCount / tasksCount;
 
         //Then
+        //3 'In progress' projects, which are under development for total number of day of 20 + 10 + 0 = 30, hence average
+        //development period is 10 days.
         assertEquals(10, averageTime);
     }
 
