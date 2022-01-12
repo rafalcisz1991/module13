@@ -84,10 +84,10 @@ public class BoardTestSuite {
     void testAddTaskListAverageWorkingOnTask(){
         //Given
         Board project = prepareTestData();
-
-        //When
         List<TaskList> taskList = new ArrayList<>();
         taskList.add(new TaskList(("In progress")));
+
+        //When
         long daysCount = project.getTaskLists().stream()
                 .filter(taskList::contains)
                 .flatMap(tl -> tl.getTasks().stream())
@@ -97,7 +97,7 @@ public class BoardTestSuite {
                 .sum();
 
         long tasksCount = project.getTaskLists().stream()
-                .filter((taskList::contains))
+                .filter(taskList::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .count();
 
