@@ -10,16 +10,17 @@ public class ArrayOperationsTestSuite {
     @Test
     void testGetAverage(){
         //Given
-        int[] numbers = new int[4];
+        int[] numbers = new int[5];
         numbers[0] = 4;
         numbers[1] = 10;
         numbers[2] = 21;
         numbers[3] = 13;
+        numbers[4] = 100;
 
         //When
         double resultAverage = ArrayOperations.getAverage(numbers);
 
         //Then
-        assertEquals(12, resultAverage);
+        assertEquals(29.6, resultAverage);
     }
 }
