@@ -13,7 +13,30 @@ public class SecondChallengeTestSuite {
        double xFigure = 2;
        double yFigure = 1.5;
 
-       //Then
+       //When & Then
        assertThrows(Exception.class, () -> secondChallenge.probablyIWillThrowException(xFigure, yFigure));
+   }
+
+   @Test
+    void testValidFigures() {
+       //Given
+       SecondChallenge secondChallenge = new SecondChallenge();
+       double xFigure = 1;
+       double yFigure = 2;
+
+       //When & Then
+       assertDoesNotThrow(() -> secondChallenge.probablyIWillThrowException(xFigure, yFigure));
+   }
+
+   @Test
+    void testValidAndInvalidFiguresException(){
+       //Given
+       SecondChallenge secondChallenge = new SecondChallenge();
+
+       //When & Then
+       assertAll(
+               () -> assertThrows(Exception.class, () -> secondChallenge.probablyIWillThrowException(0.5,1.5)),
+               () -> assertDoesNotThrow(()-> secondChallenge.probablyIWillThrowException(1,2))
+       );
    }
 }
