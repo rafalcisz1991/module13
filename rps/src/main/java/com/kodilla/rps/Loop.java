@@ -30,6 +30,10 @@ public class Loop {
         return end;
     }
 
+    public int getRoundsRequest() {
+        return roundsRequest;
+    }
+
     public void initialValues(){
         System.out.println("To begin playing Rock,Paper,Scissors - please state your name:");
         playersName = scanner.nextLine();
