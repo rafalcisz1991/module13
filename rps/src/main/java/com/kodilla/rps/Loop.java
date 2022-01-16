@@ -91,7 +91,7 @@ public class Loop {
             }
         }
 
-        //Assessing, whether the player wants to continue the game after the last round
+        //Assessing, whether player wants to continue the game after the last round
         if (roundsCounter < roundsRequest) {
             System.out.println("Prepare for the next round");
         } else {
