@@ -91,10 +91,12 @@ public class Loop {
             }
         }
 
+        //Assessing, whether the player wants to continue the game after the last round
         if (roundsCounter < roundsRequest) {
             System.out.println("Prepare for the next round");
         } else {
-            System.out.println("Decide, whether you want to terminate or continue: 'x' for termination, 'n' for re-launching the game for the same amount of rounds");
+            System.out.println("Decide, whether you want to terminate or continue: 'x' for termination," +
+                    " 'n' for re-launching the game for the same amount of rounds");
             scanner.nextLine();
             endGame = scanner.nextLine();
 
