@@ -9,13 +9,11 @@ public class FlightRunner {
         Flight flight2 = new Flight("Okecie", "JFK");
 
         try {
-            flightSeeker.findFlight(flight1);
+            flightSeeker.findFlight(flight2);
         } catch (RouteNotFoundException e){
-            System.out.println("Flight not found");
+            System.out.println("XX");
         } finally {
             System.out.println("I am gonna be here... always!");
         }
-
     }
-
 }

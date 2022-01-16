@@ -5,23 +5,20 @@ import java.util.Map;
 
 public class FlightSeeker {
 
-    boolean findFlight(Flight flight) throws RouteNotFoundException {
-
-        boolean flightMatch = false;
+    void findFlight(Flight flight) throws RouteNotFoundException {
 
         Map<String, Boolean> flightMap = new HashMap<>();
-        flightMap.put("Schpiphol", true);
+        flightMap.put("Schiphol", true);
         flightMap.put("LAX", true);
         flightMap.put("Schonefeld", true);
         flightMap.put("Okecie", true);
 
-        for (Map.Entry<String, Boolean> entry: flightMap.entrySet()){
-            if(entry.getKey() != flight.getArrivalAirport() || entry.getKey() != flight.getDepartureAirport()){
-                throw new RouteNotFoundException();
+            if(flightMap.containsKey(flight.getArrivalAirport()) && flightMap.containsKey(flight.getDepartureAirport())){
+                System.out.println("Flight found!");
             } else {
-                flightMatch = entry.getValue();
+                System.out.println("Flight not found!");
+                throw new RouteNotFoundException();
             }
         }
-        return flightMatch;
     }
-}
+
