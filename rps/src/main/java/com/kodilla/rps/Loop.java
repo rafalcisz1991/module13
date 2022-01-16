@@ -26,9 +26,9 @@ public class Loop {
         return playersName;
     }
 
-    /*public boolean isEnd() {
+    public boolean isEnd() {
         return end;
-    }*/
+    }
 
     public void initialValues(){
         System.out.println("To begin playing Rock,Paper,Scissors - please state your name:");
@@ -41,15 +41,13 @@ public class Loop {
         System.out.println("'3' for Scissors");
     }
 
-    public boolean gameLoop(){
+    public boolean gameLoop() {
         List<String> playerResults = new ArrayList<>();
         roundsCounter++;
         System.out.println("Round nr " + roundsCounter);
         System.out.println("Please take your pick: Rock - '1', Paper - '2' or Scissors - '3'");
         playersPick = scanner.nextInt();
         computerPick = randomNumber.nextInt(3);
-
-
 
         if (playersPick == 1 || playersPick == 2 || playersPick == 3) {
             if (playersPick == 1) {
@@ -63,7 +61,7 @@ public class Loop {
             if (computerPick == 1) {
                 System.out.println("Computer picked: Rock");
                 if (playersPick == 2) {
-                    System.out.println(playersName + "wins this round");
+                    System.out.println(playersName + " wins this round");
                     playerResults.add("Win");
                 } else if (playersPick == 1) {
                     System.out.println("Tie!");
@@ -77,13 +75,13 @@ public class Loop {
                 } else if (playersPick == 2) {
                     System.out.println("Tie!");
                 } else {
-                    System.out.println(playersName + "wins this round!");
+                    System.out.println(playersName + " wins this round!");
                     playerResults.add("Win");
                 }
             } else {
                 System.out.println("Computer picked: Scissors");
                 if (playersPick == 1) {
-                    System.out.println(playersName + "wins this round!");
+                    System.out.println(playersName + " wins this round!");
                     playerResults.add("Win");
                 } else if (playersPick == 2) {
                     System.out.println("Computer wins this round!");
@@ -91,25 +89,25 @@ public class Loop {
                     System.out.println("Tie!");
                 }
             }
-        } else {
-
         }
 
-        if (roundsCounter == roundsRequest){
-            System.out.println("Please decide, whether you want to continue or to terminate the game");
+        if (roundsCounter < roundsRequest) {
+            System.out.println("Prepare for the next round");
+        } else {
+            System.out.println("Decide, whether you want to terminate or continue");
+            scanner.nextLine();
             endGame = scanner.nextLine();
-            if (endGame.equals("x")){
-                System.out.println("You chose to end the game");
+            //scanner.hasNextLine();
+            //System.out.println();
+
+            if (endGame.equals("x")) {
                 end = true;
-            }
-            else if (endGame.equals("n")){
-                System.out.println("You chose to play again");
+            } else if (endGame.equals("n")){
                 end = false;
-            } else {
-                System.out.println("You picked wrong");
             }
         }
         return end;
     }
 }
+
 

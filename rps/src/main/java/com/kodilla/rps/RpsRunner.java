@@ -4,12 +4,13 @@ public class RpsRunner {
 
     public static void main(String[] args) {
 
-        boolean end = false;
+
         Loop loop = new Loop();
+
         //Getting player's name and his request regarding number of rounds;
         loop.initialValues();
         //Executing the game
-        while (!end) {
+        while (!loop.isEnd()) {
             loop.gameLoop();
 
         }
