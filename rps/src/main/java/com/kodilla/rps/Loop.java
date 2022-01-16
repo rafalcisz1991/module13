@@ -55,11 +55,11 @@ public class Loop {
 
         if (playersPick == 1 || playersPick == 2 || playersPick == 3) {
             if (playersPick == 1) {
-                System.out.println(playersName + "picked: Rock");
+                System.out.println(playersName + " picked: Rock");
             } else if (playersPick == 2) {
-                System.out.println(playersName + "picked: Paper");
+                System.out.println(playersName + " picked: Paper");
             } else {
-                System.out.println(playersName + "picked: Scissors");
+                System.out.println(playersName + " picked: Scissors");
             }
 
             if (computerPick == 1) {
