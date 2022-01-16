@@ -103,7 +103,6 @@ public class Loop {
                     " 'n' for re-launching the game for the same amount of rounds");
             scanner.nextLine();
             endGame = scanner.nextLine();
-
             if (endGame.equals("x")) {
                 end = true;
             } else if (endGame.equals("n")){
