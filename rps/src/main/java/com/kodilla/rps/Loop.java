@@ -42,7 +42,7 @@ public class Loop {
     }
 
     public boolean gameLoop() {
-        List<String> playerResults = new ArrayList<>();
+
         roundsCounter++;
         System.out.println("Round nr " + roundsCounter);
         System.out.println("Please take your pick: Rock - '1', Paper - '2' or Scissors - '3'");
