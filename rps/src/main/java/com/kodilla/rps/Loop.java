@@ -104,8 +104,10 @@ public class Loop {
             scanner.nextLine();
             endGame = scanner.nextLine();
             if (endGame.equals("x")) {
+                System.out.println("You chose to end the game");
                 end = true;
             } else if (endGame.equals("n")){
+                System.out.println("You chose to play again");
                 end = false;
             }
         }
