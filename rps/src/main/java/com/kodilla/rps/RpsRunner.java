@@ -11,8 +11,11 @@ public class RpsRunner {
         while (!loop.isEnd()) {
             loop.gameLoop();
         }
-
-        System.out.println("Current number of winnings of: " + loop.getPlayersName() + " is " + loop.getPlayerResults().size());
+        if(loop.getPlayerResults().isEmpty()){
+            System.out.println("Player did not win a single round");
+        } else {
+            System.out.println("Current number of winnings of: " + loop.getPlayersName() + " is " + loop.getPlayerResults().size());
+        }
     }
 }
 
