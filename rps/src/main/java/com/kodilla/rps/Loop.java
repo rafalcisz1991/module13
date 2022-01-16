@@ -9,23 +9,46 @@ public class Loop {
 
     Scanner scanner = new Scanner(System.in);
     Random randomNumber = new Random();
-    boolean end = false;
+    boolean end;
     int playersPick;
     String playersName;
     int computerPick;
     int roundsRequest;
-    int roundsCounter = 1;
+    int roundsCounter = 0;
     List<String> playerResults = new ArrayList<>();
     String endGame;
 
+    public List<String> getPlayerResults() {
+        return playerResults;
+    }
+
+    public String getPlayersName() {
+        return playersName;
+    }
+
+    /*public boolean isEnd() {
+        return end;
+    }*/
+
+    public void initialValues(){
+        System.out.println("To begin playing Rock,Paper,Scissors - please state your name:");
+        playersName = scanner.nextLine();
+        System.out.println(" and a duration of the game - number of rounds: ");
+        roundsRequest = scanner.nextInt();
+        System.out.println("In order to pick the following, please press appropriate keyboard button:");
+        System.out.println("'1' for Rock");
+        System.out.println("'2' for Paper");
+        System.out.println("'3' for Scissors");
+    }
 
     public boolean gameLoop(){
-
         List<String> playerResults = new ArrayList<>();
+        roundsCounter++;
         System.out.println("Round nr " + roundsCounter);
         System.out.println("Please take your pick: Rock - '1', Paper - '2' or Scissors - '3'");
         playersPick = scanner.nextInt();
         computerPick = randomNumber.nextInt(3);
+
 
 
         if (playersPick == 1 || playersPick == 2 || playersPick == 3) {
@@ -69,29 +92,24 @@ public class Loop {
                 }
             }
         } else {
-            System.out.println("You picked wrong");
+
         }
 
-
-
-        roundsCounter++;
         if (roundsCounter == roundsRequest){
             System.out.println("Please decide, whether you want to continue or to terminate the game");
             endGame = scanner.nextLine();
-            if (endGame == "x"){
+            if (endGame.equals("x")){
                 System.out.println("You chose to end the game");
                 end = true;
             }
-            else if (endGame == "n"){
+            else if (endGame.equals("n")){
                 System.out.println("You chose to play again");
                 end = false;
             } else {
-
+                System.out.println("You picked wrong");
             }
-        } else if (roundsCounter < roundsRequest) {
-            System.out.println("Prepare for the next round");
-            end = false;
         }
-         return end;
+        return end;
     }
 }
+
