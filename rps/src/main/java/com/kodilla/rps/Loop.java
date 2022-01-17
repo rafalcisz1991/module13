@@ -21,11 +21,9 @@ public class Loop {
     public List<String> getPlayerResults() {
         return playerResults;
     }
-
     public String getPlayersName() {
         return playersName;
     }
-
     public boolean isEnd() {
         return end;
     }
