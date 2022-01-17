@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FlightSeeker {
-
     void findFlight(Flight flight) throws RouteNotFoundException {
 
         Map<String, Boolean> flightMap = new HashMap<>();
