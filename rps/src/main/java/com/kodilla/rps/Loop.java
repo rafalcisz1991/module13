@@ -49,7 +49,7 @@ public class Loop {
         System.out.println("Round nr " + roundsCounter);
         System.out.println("Please take your pick: Rock - '1', Paper - '2' or Scissors - '3'");
         playersPick = scanner.nextInt();
-        computerPick = randomNumber.nextInt(3);
+        computerPick = randomNumber.nextInt(2) + 1;
 
         if (playersPick == 1 || playersPick == 2 || playersPick == 3) {
             if (playersPick == 1) {
