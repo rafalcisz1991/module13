@@ -25,7 +25,6 @@ public class SecondChallengeTestSuite {
 
        //When & Then
        assertEquals("Done!", expectedResult);
-
    }
 
    @Test
