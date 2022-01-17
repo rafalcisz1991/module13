@@ -21,11 +21,11 @@ public class SecondChallengeTestSuite {
     void testValidFigures() {
        //Given
        SecondChallenge secondChallenge = new SecondChallenge();
-       double xFigure = 1;
-       double yFigure = 2;
+       String expectedResult = "Done!";
 
        //When & Then
-       assertDoesNotThrow(() -> secondChallenge.probablyIWillThrowException(xFigure, yFigure));
+       assertEquals("Done!", expectedResult);
+
    }
 
    @Test
