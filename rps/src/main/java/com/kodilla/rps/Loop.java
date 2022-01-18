@@ -94,7 +94,6 @@ public class Loop {
     }
 
     public void countingRounds() {
-
         //Assessing, whether player wants to continue the game after the last round
         if (roundsCounter < roundsRequest) {
             System.out.println("Prepare for the next round");
