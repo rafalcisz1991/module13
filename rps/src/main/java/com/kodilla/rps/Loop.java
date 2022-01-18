@@ -31,6 +31,7 @@ public class Loop {
 
     public void initialValues() {
         System.out.println("To begin playing Rock,Paper,Scissors - please state your name:");
+        scanner.nextLine();
         playersName = scanner.nextLine();
         System.out.println(" and a duration of the game - number of rounds: ");
         roundsRequest = scanner.nextInt();
@@ -87,6 +88,9 @@ public class Loop {
                     System.out.println("Tie!");
                 }
             }
+        } else {
+            System.out.println("You picked a wrong number. Game will be be-launched");
+            initialValues();
         }
     }
 
