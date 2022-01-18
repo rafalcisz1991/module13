@@ -10,13 +10,10 @@ public class Loop {
     Scanner scanner = new Scanner(System.in);
     Random randomNumber = new Random();
     private boolean end;
-    private int playersPick;
     private String playersName;
-    private int computerPick;
     private int roundsRequest;
     private int roundsCounter = 0;
     List<String> playerResults = new ArrayList<>();
-    private String endGame;
 
     public List<String> getPlayerResults() {
         return playerResults;
@@ -47,8 +44,8 @@ public class Loop {
         roundsCounter++;
         System.out.println("Round nr " + roundsCounter);
         System.out.println("Please take your pick: Rock - '1', Paper - '2' or Scissors - '3'");
-        playersPick = scanner.nextInt();
-        computerPick = randomNumber.nextInt(3) + 1;
+        int playersPick = scanner.nextInt();
+        int computerPick = randomNumber.nextInt(3) + 1;
 
         if (playersPick == 1 || playersPick == 2 || playersPick == 3) {
             if (playersPick == 1) {
@@ -101,7 +98,7 @@ public class Loop {
             System.out.println("Decide, whether you want to terminate or continue: 'x' for termination," +
                     " 'n' for re-launching the game for the same amount of rounds");
             scanner.nextLine();
-            endGame = scanner.nextLine();
+            String endGame = scanner.nextLine();
             if (endGame.equals("x")) {
                 System.out.println("You chose to end the game");
                 end = true;
