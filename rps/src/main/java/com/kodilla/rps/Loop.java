@@ -89,7 +89,7 @@ public class Loop {
                 }
             }
         } else {
-            System.out.println("You picked a wrong number. Game will be be-launched");
+            System.out.println("You picked a wrong number. Game will be re-launched");
             initialValues();
         }
     }
