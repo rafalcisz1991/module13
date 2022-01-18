@@ -9,14 +9,14 @@ public class Loop {
 
     Scanner scanner = new Scanner(System.in);
     Random randomNumber = new Random();
-    boolean end;
-    int playersPick;
-    String playersName;
-    int computerPick;
-    int roundsRequest;
-    int roundsCounter = 0;
+    private boolean end;
+    private int playersPick;
+    private String playersName;
+    private int computerPick;
+    private int roundsRequest;
+    private int roundsCounter = 0;
     List<String> playerResults = new ArrayList<>();
-    String endGame;
+    private String endGame;
 
     public List<String> getPlayerResults() {
         return playerResults;
@@ -43,7 +43,7 @@ public class Loop {
         System.out.println("'3' for Scissors");
     }
 
-    public boolean gameLoop() {
+    public void gameLoop() {
 
         roundsCounter++;
         System.out.println("Round nr " + roundsCounter);
@@ -92,6 +92,9 @@ public class Loop {
                 }
             }
         }
+    }
+
+    public boolean countingRounds(){
 
         //Assessing, whether player wants to continue the game after the last round
         if (roundsCounter < roundsRequest) {
