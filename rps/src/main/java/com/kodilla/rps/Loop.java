@@ -32,7 +32,7 @@ public class Loop {
         return roundsRequest;
     }
 
-    public void initialValues(){
+    public void initialValues() {
         System.out.println("To begin playing Rock,Paper,Scissors - please state your name:");
         playersName = scanner.nextLine();
         System.out.println(" and a duration of the game - number of rounds: ");
@@ -44,7 +44,6 @@ public class Loop {
     }
 
     public void gameLoop() {
-
         roundsCounter++;
         System.out.println("Round nr " + roundsCounter);
         System.out.println("Please take your pick: Rock - '1', Paper - '2' or Scissors - '3'");
@@ -94,7 +93,7 @@ public class Loop {
         }
     }
 
-    public boolean countingRounds(){
+    public void countingRounds() {
 
         //Assessing, whether player wants to continue the game after the last round
         if (roundsCounter < roundsRequest) {
@@ -107,12 +106,11 @@ public class Loop {
             if (endGame.equals("x")) {
                 System.out.println("You chose to end the game");
                 end = true;
-            } else if (endGame.equals("n")){
+            } else if (endGame.equals("n")) {
                 System.out.println("You chose to play again");
                 end = false;
             }
         }
-        return end;
     }
 }
 
