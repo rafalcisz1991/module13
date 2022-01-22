@@ -11,8 +11,8 @@ public class Seller extends User{
         this.productsInStock = productsInStock;
     }
 
-    public HashMap<Product, Integer> availableProducts (Product product, int quantity) {
-        productsInStock.put(product, quantity);
+    public HashMap<Product, Integer> sellingProducts (Product product, int quantity) {
+        productsInStock.remove(product, quantity);
 
         return productsInStock;
     }
