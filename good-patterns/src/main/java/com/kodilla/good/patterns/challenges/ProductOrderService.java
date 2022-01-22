@@ -12,11 +12,11 @@ public class ProductOrderService {
         this.purchaseRepository = purchaseRepository;
     }
 
-    public void purchaseProcess(Seller seller, Buyer buyer, Product product, boolean availability){
+    public void purchaseProcess(Seller seller, Buyer buyer, Product product){
+        boolean availability = seller.getProductsInStock().entrySet().contains(product);
         if (availability){
 
         }
-
     }
 
 
