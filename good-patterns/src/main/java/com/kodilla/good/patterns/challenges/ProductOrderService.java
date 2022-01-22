@@ -12,6 +12,12 @@ public class ProductOrderService {
         this.purchaseRepository = purchaseRepository;
     }
 
+    public void purchaseProcess(Seller seller, Buyer buyer, Product product, boolean availability){
+
+    }
+
+
+
 
 
     //jakie konkretnie interfejsy napisać
