@@ -13,6 +13,9 @@ public class ProductOrderService {
     }
 
     public void purchaseProcess(Seller seller, Buyer buyer, Product product, boolean availability){
+        if (availability){
+
+        }
 
     }
 
