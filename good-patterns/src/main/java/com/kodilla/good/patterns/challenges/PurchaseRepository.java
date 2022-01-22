@@ -1,7 +1,8 @@
 package com.kodilla.good.patterns.challenges;
 
+import java.util.List;
+
 public interface PurchaseRepository {
 
-    boolean createOrder(Seller seller, Buyer buyer, Product product);
-
+    List ordersList(Seller seller, Buyer buyer, Product product);
 }
