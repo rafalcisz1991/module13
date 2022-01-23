@@ -4,34 +4,28 @@ public class ProductOrderService {
 
     private InformingParties informingParties;
     private PurchaseService purchaseService;
-    private PurchaseRepository purchaseRepository;
+    private PaymentExecution paymentExecution;
 
-    public ProductOrderService(final InformingParties informingParties, final PurchaseService purchaseService, final PurchaseRepository purchaseRepository) {
+    public ProductOrderService(final InformingParties informingParties, final PurchaseService purchaseService,
+                               final PaymentExecution paymentExecution) {
         this.informingParties = informingParties;
         this.purchaseService = purchaseService;
-        this.purchaseRepository = purchaseRepository;
+        this.paymentExecution = paymentExecution;
     }
 
     public void purchaseProcess(Seller seller, Buyer buyer, Product product){
-        boolean availability = seller.getProductsInStock().entrySet().contains(product);
+        boolean availability = seller.getProductsInStock().contains(product);
         if (availability){
-
+            System.out.println(product + " is available in" + seller + "'s stock. Put it in your cart");
+            buyer.purchasingProducts(product);
+            seller.sellingProducts(product);
+            paymentExecution.executePayment(seller, buyer, product);
+            purchaseService.createOrder(seller, buyer, product);
+            informingParties.inform(seller, buyer);
+        } else {
+            System.out.println("Given product: " + product + " is currently out of stock.");
         }
     }
-
-
-
-
-
-    //jakie konkretnie interfejsy napisać
-    //jakie pola dla tej klasy
-    //repozytorium o tym, czy
-    //stworzyć klasę Product - pola, cena, opis, właściwości, ilość
-    //osobna klasa, która będzie miała listę obiektów Product;
-    //dwie oddzieln klasy - dla kupującego i sprzedającego
-    //metody powiadamiania SMS, że zlecenie jest realizowane
-    //metoda sprawdza, czy produkt jest dostępny - potem powiadamia obie strony, że jest dostępny
-
 }
 
 

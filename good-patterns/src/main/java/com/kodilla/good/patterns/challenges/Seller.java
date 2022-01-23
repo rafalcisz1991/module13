@@ -1,19 +1,23 @@
 package com.kodilla.good.patterns.challenges;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
-public class Seller extends User{
+public class Seller extends User {
 
-    public HashMap <Product, Integer> productsInStock;
+    ArrayList<Product> productsInStock;
 
-    public Seller(String name, String email, HashMap<Product, Integer> productsInStock) {
+    public Seller(String name, String email, ArrayList<Product> productsInStock) {
         super(name, email);
         this.productsInStock = productsInStock;
     }
 
-    public HashMap<Product, Integer> sellingProducts (Product product, int quantity) {
-        productsInStock.remove(product, quantity);
+    public ArrayList<Product> sellingProducts(Product product) {
 
+        productsInStock.remove(product);
+        return productsInStock;
+    }
+
+    public ArrayList<Product> getProductsInStock() {
         return productsInStock;
     }
 }
