@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PurchaseApplication {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         ArrayList<Product> listOfProducts = new ArrayList<>();
         listOfProducts.add(new Product("Coffee maker", "makes coffee", 29.99));
@@ -18,16 +18,10 @@ public class PurchaseApplication {
         PurchaseProcessor purchaseProcessor = new PurchaseProcessor();
         InformerProcessor informerProcessor = new InformerProcessor();
 
-
-
         ProductOrderService productOrderService = new ProductOrderService( new InformerProcessor(),
                 new PurchaseProcessor(), new PaymentExecutor());
 
-        productOrderService.purchaseProcess(seller1, buyer1, new Product("Coffee maker",
+        productOrderService.purchaseProcess(seller1, buyer1, new Product("Coff maker",
                 "makes coffee", 29.99));
-
-
-
-
     }
 }

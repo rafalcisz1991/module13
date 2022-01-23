@@ -16,7 +16,7 @@ public class ProductOrderService {
     public void purchaseProcess(Seller seller, Buyer buyer, Product product){
         boolean availability = seller.getProductsInStock().contains(product);
         if (availability){
-            System.out.println(product + " is available in" + seller + "'s stock. Put it in your cart");
+            System.out.println(product + " is available in " + seller + "'s stock. Put it in your cart");
             buyer.purchasingProducts(product);
             seller.sellingProducts(product);
             paymentExecution.executePayment(seller, buyer, product);
