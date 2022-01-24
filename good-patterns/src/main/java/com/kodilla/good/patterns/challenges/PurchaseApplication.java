@@ -19,6 +19,7 @@ public class PurchaseApplication {
                 new PurchaseProcessor(), new PaymentExecutor());
 
         productOrderService.purchaseProcess(seller1, buyer1, new Product("Coffee maker",
-                "makes coffee", 29.99), 10);
+                "makes coffee", 29.99), 1);
+
     }
 }
