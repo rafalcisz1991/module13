@@ -13,6 +13,7 @@ public class FlightSeeker {
         flightMap.put("Okecie", true);
 
             if(flightMap.containsKey(flight.getArrivalAirport()) && flightMap.containsKey(flight.getDepartureAirport())){
+                //drg if, sprawdzającym czy wartość jest true,
                 System.out.println("Flight found!");
             } else {
                 System.out.println("Flight not found!");

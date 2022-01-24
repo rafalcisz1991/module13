@@ -101,7 +101,7 @@ public class Loop {
         } else {
             System.out.println("Decide, whether you want to terminate or continue: 'x' for termination," +
                     " 'n' for re-launching the game for the same amount of rounds");
-            scanner.nextLine();
+            //scanner.nextLine();
             String endGame = scanner.nextLine();
             if (endGame.equals("x")) {
                 System.out.println("You chose to end the game");
