@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Products {
 
-    private String name;
+    final String name;
 
     public Products(String name) {
         this.name = name;

@@ -5,16 +5,17 @@ import java.util.Objects;
 
 public abstract class Company {
 
-    private String name;
-    private String contact;
-    private HashMap<Products, Integer> productsForSale;
+    final String name;
+    final String contact;
+    final HashMap<Products, Integer> productsList = new HashMap<>();
 
     abstract void process();
+    abstract HashMap<Products, Integer> listOfProducts (Products products, Integer quantity);
 
-    public Company(String name, String contact, HashMap<Products, Integer> productsForSale) {
+    public Company(String name, String contact) {
         this.name = name;
         this.contact = contact;
-        this.productsForSale = productsForSale;
+
     }
 
     public String getName() {
@@ -26,12 +27,7 @@ public abstract class Company {
     }
 
     public HashMap<Products, Integer> getProductsForSale() {
-        return productsForSale;
-    }
-
-    public HashMap<Products, Integer> addingProducts(Products products, Integer quantity) {
-        productsForSale.put(products, quantity);
-        return productsForSale;
+        return productsList;
     }
 
     @Override
