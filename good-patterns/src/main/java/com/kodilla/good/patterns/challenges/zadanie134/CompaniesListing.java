@@ -15,4 +15,8 @@ public class CompaniesListing {
         companiesList.remove(company);
         return companiesList;
     }
+
+    public HashSet<Company> getCompaniesList() {
+        return companiesList;
+    }
 }
