@@ -29,6 +29,11 @@ public abstract class Company {
         return productsForSale;
     }
 
+    public HashMap<Products, Integer> addingProducts(Products products, Integer quantity) {
+        productsForSale.put(products, quantity);
+        return productsForSale;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
