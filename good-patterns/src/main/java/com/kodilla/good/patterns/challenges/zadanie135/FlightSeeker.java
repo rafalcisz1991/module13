@@ -1,6 +1,8 @@
 package com.kodilla.good.patterns.challenges.zadanie135;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class FlightSeeker {
 
@@ -16,11 +18,16 @@ public class FlightSeeker {
         return flightList;
     }
 
+    //Nowa, poprawiona wersja wersja
     public void getFlightsFrom(String departureAirport) {
-        flightList.entrySet().stream()
-                .map(entry -> entry.getKey().getDepartureAirport())
-                .filter(airport -> airport.equals(departureAirport))
-                .forEach(System.out::println);
+        String searchedFlight = flightList.entrySet().stream()
+                .map(Map.Entry::getKey)
+                .filter(airport -> airport.getDepartureAirport().equals(departureAirport))
+                .map(Flight::toString)
+                .collect(Collectors.joining("; "));
+        System.out.println(searchedFlight);
+
+
     }
 
     public void getFlightsTo(String arrivalAirport) {
