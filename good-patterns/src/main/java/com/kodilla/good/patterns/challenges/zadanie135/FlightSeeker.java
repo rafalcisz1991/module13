@@ -18,7 +18,7 @@ public class FlightSeeker {
         return flightList;
     }
 
-    //Nowa, poprawiona wersja wersja
+    //Nowa, poprawiona wersja metody
     public void getFlightsFrom(String departureAirport) {
         String searchedFlight = flightList.entrySet().stream()
                 .map(Map.Entry::getKey)
