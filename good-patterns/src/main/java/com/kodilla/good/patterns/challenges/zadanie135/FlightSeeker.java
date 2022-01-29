@@ -26,7 +26,7 @@ public class FlightSeeker {
         String searchedFlight = flightList.stream()
                 .filter(airport -> airport.getDepartureAirport().equals(departureAirport))
                 .map(Flight::toString)
-                .collect(Collectors.joining("; "));
+                .collect(Collectors.joining());
         System.out.println(searchedFlight);
     }
 
