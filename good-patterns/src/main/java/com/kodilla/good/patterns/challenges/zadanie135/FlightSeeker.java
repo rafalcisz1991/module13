@@ -1,36 +1,36 @@
 package com.kodilla.good.patterns.challenges.zadanie135;
 
 import java.util.HashMap;
-import java.util.Map;
+
+import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public class FlightSeeker {
 
-    //Czy HashSet będzie odpowiedni do przechowywania kolekcji tras lotniczych?
-    HashMap<Flight, Boolean> flightList = new HashMap<>();
+    HashSet<Flight> flightList = new HashSet<>();
 
-    public HashMap<Flight, Boolean> creatingFlightList(Flight flight) {
-        flightList.put(flight, true);
+    public HashSet<Flight> creatingFlightList(Flight flight) {
+        flightList.add(flight);
         return flightList;
     }
 
-    public HashMap<Flight, Boolean> getFlightList() {
+    public HashSet<Flight> getFlightList() {
         return flightList;
     }
 
-    //Nowa, poprawiona wersja metody
+    //Poz -> Waw
+    //Waw -> Monachium
+
+    //Nowa, poprawiona wersja wersja
     public void getFlightsFrom(String departureAirport) {
-        String searchedFlight = flightList.entrySet().stream()
-                .map(Map.Entry::getKey)
+        String searchedFlight = flightList.stream()
                 .filter(airport -> airport.getDepartureAirport().equals(departureAirport))
                 .map(Flight::toString)
                 .collect(Collectors.joining("; "));
         System.out.println(searchedFlight);
-
-
     }
 
-    public void getFlightsTo(String arrivalAirport) {
+  /*  public void getFlightsTo(String arrivalAirport) {
         flightList.entrySet().stream()
                 .map(entry -> entry.getKey().getArrivalAirport())
                 .filter(airport -> airport.equals(arrivalAirport))
@@ -38,12 +38,14 @@ public class FlightSeeker {
     }
 
     // o co chodzi z tym keySet() - podświetlona "map" na żółto poniżej
-    public void getFlightsThrough(String stopoverAirport) {
+    public List<FlightWithTransfer> getFlightsThrough(String stopoverAirport) {
         flightList.entrySet().stream()
                 .map(entry -> entry.getKey().getStopoverAirport())
                 .filter(airport -> airport.equals(stopoverAirport))
                 .forEach(System.out::println);
-    }
+
+        
+    }*/
 }
 
 

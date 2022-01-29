@@ -1,3 +1,4 @@
+
 package com.kodilla.good.patterns.challenges.zadanie135;
 
 public class Application {
@@ -11,8 +12,8 @@ public class Application {
         flightSeeker.creatingFlightList(flight1);
         flightSeeker.creatingFlightList(flight2);
 
+        System.out.println("Flight route, searched based on the departure airport, is listed below: ");
         flightSeeker.getFlightsFrom("LAX");
-
-
     }
 }
+
