@@ -14,6 +14,9 @@ public class Application {
 
         System.out.println("Flight route, searched based on the departure airport, is listed below: ");
         flightSeeker.getFlightsFrom("LAX");
+        System.out.println();
+        System.out.println("Flight route, searched based on the arrival airport, is listed below:");
+        flightSeeker.getFlightsTo("Schonefeld");
     }
 }
 

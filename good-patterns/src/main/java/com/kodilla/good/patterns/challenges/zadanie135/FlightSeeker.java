@@ -32,7 +32,7 @@ public class FlightSeeker {
 
    public void getFlightsTo(String arrivalAirport) {
        String searchedFlight = flightList.stream()
-               .filter(airport -> airport.getDepartureAirport().equals(arrivalAirport))
+               .filter(airport -> airport.getArrivalAirport().equals(arrivalAirport))
                .map(Flight::toString)
                .collect(Collectors.joining());
        System.out.println(searchedFlight);
