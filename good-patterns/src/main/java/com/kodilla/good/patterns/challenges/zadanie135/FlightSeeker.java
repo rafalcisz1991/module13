@@ -3,39 +3,31 @@ package com.kodilla.good.patterns.challenges.zadanie135;
 import java.util.HashMap;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class FlightSeeker {
 
-    HashSet<Flight> flightList = new HashSet<>();
+    final HashSet<Flight> listOfFlights;
 
-    public HashSet<Flight> creatingFlightList(Flight flight) {
-        flightList.add(flight);
-        return flightList;
-    }
-
-    public HashSet<Flight> getFlightList() {
-        return flightList;
+    public FlightSeeker(HashSet<Flight> listOfFlights) {
+        this.listOfFlights = listOfFlights;
     }
 
     //Poz -> Waw
     //Waw -> Monachium
 
     //Nowa, poprawiona wersja wersja
-    public void getFlightsFrom(String departureAirport) {
-        String searchedFlight = flightList.stream()
+    public List<Flight> getFlightsFrom(String departureAirport) {
+        return listOfFlights.stream()
                 .filter(airport -> airport.getDepartureAirport().equals(departureAirport))
-                .map(Flight::toString)
-                .collect(Collectors.joining());
-        System.out.println(searchedFlight);
+                .collect(Collectors.toList());
     }
 
-   public void getFlightsTo(String arrivalAirport) {
-       String searchedFlight = flightList.stream()
+   public List<Flight> getFlightsTo(String arrivalAirport) {
+       return listOfFlights.stream()
                .filter(airport -> airport.getArrivalAirport().equals(arrivalAirport))
-               .map(Flight::toString)
-               .collect(Collectors.joining());
-       System.out.println(searchedFlight);
+               .collect(Collectors.toList());
     }
 
     /*

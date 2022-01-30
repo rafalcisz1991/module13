@@ -18,6 +18,10 @@ public class Flight {
         return departureAirport;
     }
 
+    public String getStopoverAirport() {
+        return stopoverAirport;
+    }
+
     public String getArrivalAirport() {
         return arrivalAirport;
     }

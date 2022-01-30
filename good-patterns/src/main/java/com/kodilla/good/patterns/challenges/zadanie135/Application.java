@@ -5,18 +5,7 @@ public class Application {
 
     public static void main(String[] args){
 
-        Flight flight1 = new Flight("LAX", "Shiphol", "Okecie");
-        Flight flight2 = new Flight("Modlin", "JFK", "Schonefeld");
 
-        FlightSeeker flightSeeker = new FlightSeeker();
-        flightSeeker.creatingFlightList(flight1);
-        flightSeeker.creatingFlightList(flight2);
-
-        System.out.println("Flight route, searched based on the departure airport, is listed below: ");
-        flightSeeker.getFlightsFrom("LAX");
-        System.out.println();
-        System.out.println("Flight route, searched based on the arrival airport, is listed below:");
-        flightSeeker.getFlightsTo("Schonefeld");
     }
 }
 
