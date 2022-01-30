@@ -1,10 +1,8 @@
-
 package com.kodilla.good.patterns.challenges.zadanie135;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 
 public class FlightWithTransfer {
 
