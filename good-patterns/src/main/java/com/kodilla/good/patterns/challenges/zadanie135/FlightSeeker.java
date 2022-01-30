@@ -9,9 +9,11 @@ import java.util.stream.Collectors;
 public class FlightSeeker {
 
     final HashSet<Flight> listOfFlights;
+    final HashSet<FlightWithTransfer> transferFlights;
 
-    public FlightSeeker(HashSet<Flight> listOfFlights) {
+    public FlightSeeker(HashSet<Flight> listOfFlights, HashSet<FlightWithTransfer> transferFlights) {
         this.listOfFlights = listOfFlights;
+        this.transferFlights = transferFlights;
     }
 
     //Poz -> Waw
@@ -30,14 +32,14 @@ public class FlightSeeker {
                .collect(Collectors.toList());
     }
 
-   /* public List<FlightWithTransfer> getFlightRoute(String stopoverAirport) {
-        flightList.entrySet().stream()
+  /*  public List<FlightWithTransfer> getFlightRoute(String soughtFlight) {
+        return transferFlights.stream()
                 .map(entry -> entry.getKey().getStopoverAirport())
                 .filter(airport -> airport.equals(stopoverAirport))
-                .forEach(System.out::println);
+                .forEach(System.out::println);*/
 
-    }*/
-}
+    }
+
 
 
 
