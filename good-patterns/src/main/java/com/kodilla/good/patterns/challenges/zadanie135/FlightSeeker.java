@@ -30,16 +30,12 @@ public class FlightSeeker {
                .collect(Collectors.toList());
     }
 
-    /*
-
-    // o co chodzi z tym keySet() - podświetlona "map" na żółto poniżej
-    public List<FlightWithTransfer> getFlightsThrough(String stopoverAirport) {
+   /* public List<FlightWithTransfer> getFlightRoute(String stopoverAirport) {
         flightList.entrySet().stream()
                 .map(entry -> entry.getKey().getStopoverAirport())
                 .filter(airport -> airport.equals(stopoverAirport))
                 .forEach(System.out::println);
 
-        
     }*/
 }
 

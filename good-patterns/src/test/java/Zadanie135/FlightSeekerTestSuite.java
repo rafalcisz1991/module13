@@ -40,15 +40,10 @@ public class FlightSeekerTestSuite {
     }
 
 
-
-
-
-
-
-
     HashSet<Flight> testListOfFlights(){
         HashSet<Flight> listOfFlights = new HashSet<>();
         listOfFlights.add(new Flight("LAX", "Shiphol", "Okecie"));
+        listOfFlights.add(new Flight("Modlin", "Schonefeld", "Heathrow"));
         return listOfFlights;
     }
 }
