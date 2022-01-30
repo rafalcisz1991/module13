@@ -1,4 +1,4 @@
-package Zadanie135;
+package com.kodilla.good.patterns.challenges;
 
 import com.kodilla.good.patterns.challenges.zadanie135.Flight;
 import com.kodilla.good.patterns.challenges.zadanie135.FlightSeeker;
