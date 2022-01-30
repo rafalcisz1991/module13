@@ -65,7 +65,6 @@ public class FlightSeekerTestSuite {
         return listOfFlights;
     }
 
-
     private HashSet<FlightWithTransfer> testSetOfTransferFlights() {
         List<String> transferAirports = new ArrayList<>();
         transferAirports.add("Okecie");
