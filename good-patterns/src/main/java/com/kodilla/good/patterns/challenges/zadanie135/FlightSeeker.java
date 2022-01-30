@@ -18,7 +18,7 @@ public class FlightSeeker {
                 .collect(Collectors.toList());
     }
 
-    public List<FlightWithTransfer> getFlightRoute(String soughtFlight, HashSet<FlightWithTransfer> transferFlights ) {
+    public List<FlightWithTransfer> getFlightRoute(String soughtFlight, HashSet<FlightWithTransfer> transferFlights) {
         return transferFlights.stream()
                 .filter(airport -> airport.getAllAirports().contains(soughtFlight))
                 .collect(Collectors.toList());
