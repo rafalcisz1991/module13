@@ -15,10 +15,10 @@ public class FlightSeekerTestSuite {
     @Test
     void testGetFlightsFrom() {
         //Given
+        FlightSeeker flightSeeker = new FlightSeeker();
 
         //When
-        FlightSeeker flightSeeker = new FlightSeeker(testListOfFlights(), testListOfTransferFlights());
-        List<Flight> searchedFlights = flightSeeker.getFlightsFrom("LAX");
+        List<Flight> searchedFlights = flightSeeker.getFlightsFrom("LAX", testSetOfFlights());
 
         //Then
         List<Flight> expectedList = new ArrayList<>();
@@ -29,10 +29,10 @@ public class FlightSeekerTestSuite {
     @Test
     void testGetFlightsTo() {
         //Given
+        FlightSeeker flightSeeker = new FlightSeeker();
 
         //When
-        FlightSeeker flightSeeker = new FlightSeeker(testListOfFlights(), testListOfTransferFlights());
-        List<Flight> searchedFlights = flightSeeker.getFlightsTo("Okecie");
+        List<Flight> searchedFlights = flightSeeker.getFlightsTo("Okecie", testSetOfFlights());
 
         //Then
         List<Flight> expectedList = new ArrayList<>();
@@ -43,33 +43,39 @@ public class FlightSeekerTestSuite {
     @Test
     void testGetFlightsWithTransfer() {
         //Given
-
+        FlightSeeker flightSeeker = new FlightSeeker();
 
         //When
+        List<FlightWithTransfer> searchedFlights = flightSeeker.getFlightRoute("LAX", testSetOfTransferFlights());
 
         //Then
+        List<String> stopoverAirports = new ArrayList<>();
+        stopoverAirports.add("Okecie");
+        stopoverAirports.add("Modlin");
+        stopoverAirports.add("De Gaulle");
+        List<FlightWithTransfer> expectedList = new ArrayList<>();
+        expectedList.add(new FlightWithTransfer("LAX", stopoverAirports, "Schiphol"));
+        assertEquals(expectedList, searchedFlights);
     }
 
 
-    private HashSet<Flight> testListOfFlights() {
+    private HashSet<Flight> testSetOfFlights() {
         HashSet<Flight> listOfFlights = new HashSet<>();
         listOfFlights.add(new Flight("LAX", "Shiphol", "Okecie"));
         listOfFlights.add(new Flight("Modlin", "Schonefeld", "Heathrow"));
         return listOfFlights;
     }
 
-    private HashSet<FlightWithTransfer> testListOfTransferFlights() {
-        ArrayList<String> stopoverFlights1 = new ArrayList<>();
-        stopoverFlights1.add("Orly");
-        stopoverFlights1.add("Beauvais ");
+    private HashSet<FlightWithTransfer> testSetOfTransferFlights() {
+        List<String> transferAirports = new ArrayList<>();
+        transferAirports.add("Okecie");
+        transferAirports.add("Modlin");
+        transferAirports.add("De Gaulle");
+        FlightWithTransfer flightWithTransfer = new FlightWithTransfer("LAX",
+                transferAirports, "Schiphol");
 
-        ArrayList<String> stopoverFlights2 = new ArrayList<>();
-        stopoverFlights2.add("Le Bourget");
-        stopoverFlights2.add("Gardermoen");
-
-        HashSet<FlightWithTransfer> listOfFlights = new HashSet<>();
-        listOfFlights.add(new FlightWithTransfer("Okecie", stopoverFlights1, "Modlin"));
-        listOfFlights.add(new FlightWithTransfer("Okecie", stopoverFlights2, "Modlin"));
-        return listOfFlights;
+        HashSet<FlightWithTransfer> transferFlightsList = new HashSet<>();
+        transferFlightsList.add(flightWithTransfer);
+        return transferFlightsList;
     }
 }

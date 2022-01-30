@@ -1,6 +1,7 @@
 
 package com.kodilla.good.patterns.challenges.zadanie135;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,10 +9,10 @@ import java.util.Objects;
 public class FlightWithTransfer {
 
     final String departureAirport;
-    List<String> transferAirports;
+    final List<String> transferAirports;
     final String arrivalAirport;
 
-    public FlightWithTransfer(String departureAirport, List<String> transferAirports, String arrivalAirport) {
+    public FlightWithTransfer(final String departureAirport, final List<String> transferAirports, final String arrivalAirport) {
         this.departureAirport = departureAirport;
         this.transferAirports = transferAirports;
         this.arrivalAirport = arrivalAirport;
@@ -21,8 +22,11 @@ public class FlightWithTransfer {
         return departureAirport;
     }
 
-    public List<String> getTransferAirports() {
-        return transferAirports;
+    public List<String> getAllAirports() {
+        List<String> allAirports = new ArrayList<>(transferAirports);
+        allAirports.add(0, getDepartureAirport());
+        allAirports.add(getArrivalAirport());
+        return allAirports;
     }
 
     public String getArrivalAirport() {
