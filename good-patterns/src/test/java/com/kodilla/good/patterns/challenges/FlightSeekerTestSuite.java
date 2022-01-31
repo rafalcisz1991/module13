@@ -65,7 +65,6 @@ public class FlightSeekerTestSuite {
         assertEquals(expectedList, searchedFlights);
     }
 
-
     private HashSet<Flight> testSetOfFlights() {
         List<String> transferAirports = new ArrayList<>();
         transferAirports.add("Okecie");
