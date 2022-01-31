@@ -21,7 +21,7 @@ public class FlightSeekerTestSuite {
 
         //Then
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("LAX", comparableList(), "Schiphol"));
+        expectedList.add(new Flight("LAX", comparableStopoverList(), "Schiphol"));
         assertEquals(expectedList, searchedFlights);
     }
 
@@ -35,7 +35,7 @@ public class FlightSeekerTestSuite {
 
         //Then
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("LAX", comparableList(), "Schiphol"));
+        expectedList.add(new Flight("LAX", comparableStopoverList(), "Schiphol"));
         assertEquals(expectedList, searchedFlights);
     }
 
@@ -49,7 +49,7 @@ public class FlightSeekerTestSuite {
 
         //Then
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("LAX", comparableList(), "Schiphol"));
+        expectedList.add(new Flight("LAX", comparableStopoverList(), "Schiphol"));
         assertEquals(expectedList, searchedFlights);
     }
 
@@ -66,7 +66,7 @@ public class FlightSeekerTestSuite {
         return transferFlightsList;
     }
 
-    private List<String> comparableList() {
+    private List<String> comparableStopoverList() {
         List<String> stopoverAirports = new ArrayList<>();
         stopoverAirports.add("Okecie");
         stopoverAirports.add("Modlin");
