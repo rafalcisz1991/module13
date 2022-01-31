@@ -73,4 +73,5 @@ public class FlightSeekerTestSuite {
         stopoverAirports.add("De Gaulle");
         return stopoverAirports;
     }
+
 }
