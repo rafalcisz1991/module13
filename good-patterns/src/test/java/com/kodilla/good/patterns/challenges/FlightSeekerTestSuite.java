@@ -20,12 +20,8 @@ public class FlightSeekerTestSuite {
         List<Flight> searchedFlights = flightSeeker.getFlightsFrom("LAX");
 
         //Then
-        List<String> transferAirports = new ArrayList<>();
-        transferAirports.add("Okecie");
-        transferAirports.add("Modlin");
-        transferAirports.add("De Gaulle");
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("LAX", transferAirports, "Schiphol"));
+        expectedList.add(new Flight("LAX", comparableList(), "Schiphol"));
         assertEquals(expectedList, searchedFlights);
     }
 
@@ -38,12 +34,8 @@ public class FlightSeekerTestSuite {
         List<Flight> searchedFlights = flightSeeker.getFlightsTo("Schiphol");
 
         //Then
-        List<String> transferAirports = new ArrayList<>();
-        transferAirports.add("Okecie");
-        transferAirports.add("Modlin");
-        transferAirports.add("De Gaulle");
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("LAX", transferAirports, "Schiphol"));
+        expectedList.add(new Flight("LAX", comparableList(), "Schiphol"));
         assertEquals(expectedList, searchedFlights);
     }
 
@@ -56,12 +48,8 @@ public class FlightSeekerTestSuite {
         List<Flight> searchedFlights = flightSeeker.getFlightRoute("LAX", "Modlin");
 
         //Then
-        List<String> stopoverAirports = new ArrayList<>();
-        stopoverAirports.add("Okecie");
-        stopoverAirports.add("Modlin");
-        stopoverAirports.add("De Gaulle");
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("LAX", stopoverAirports, "Schiphol"));
+        expectedList.add(new Flight("LAX", comparableList(), "Schiphol"));
         assertEquals(expectedList, searchedFlights);
     }
 
@@ -76,5 +64,13 @@ public class FlightSeekerTestSuite {
         HashSet<Flight> transferFlightsList = new HashSet<>();
         transferFlightsList.add(flight);
         return transferFlightsList;
+    }
+
+    private List<String> comparableList() {
+        List<String> stopoverAirports = new ArrayList<>();
+        stopoverAirports.add("Okecie");
+        stopoverAirports.add("Modlin");
+        stopoverAirports.add("De Gaulle");
+        return stopoverAirports;
     }
 }
