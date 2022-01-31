@@ -25,7 +25,6 @@ public class FlightSeeker {
     }
 
     public List<Flight> getFlightRoute(String departureAirport, String arrivalAirport) {
-
         return flightSet.stream()
                 .filter(airport -> airport.getAllAirports().contains(departureAirport) &&
                         airport.getAllAirports().contains(arrivalAirport) && (((airport.getAllAirports()).
