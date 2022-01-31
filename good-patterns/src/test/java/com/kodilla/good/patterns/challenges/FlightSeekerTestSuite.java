@@ -1,8 +1,7 @@
 package com.kodilla.good.patterns.challenges;
 
-import com.kodilla.good.patterns.challenges.zadanie135.Flight;
 import com.kodilla.good.patterns.challenges.zadanie135.FlightSeeker;
-import com.kodilla.good.patterns.challenges.zadanie135.FlightWithTransfer;
+import com.kodilla.good.patterns.challenges.zadanie135.Flight;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -15,66 +14,68 @@ public class FlightSeekerTestSuite {
     @Test
     void testGetFlightsFrom() {
         //Given
-        FlightSeeker flightSeeker = new FlightSeeker(testSetOfFlights(), null);
+        FlightSeeker flightSeeker = new FlightSeeker(testSetOfFlights());
 
         //When
         List<Flight> searchedFlights = flightSeeker.getFlightsFrom("LAX");
 
         //Then
+        List<String> transferAirports = new ArrayList<>();
+        transferAirports.add("Okecie");
+        transferAirports.add("Modlin");
+        transferAirports.add("De Gaulle");
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("LAX", "Shiphol", "Okecie"));
+        expectedList.add(new Flight("LAX", transferAirports, "Schiphol"));
         assertEquals(expectedList, searchedFlights);
     }
 
     @Test
     void testGetFlightsTo() {
         //Given
-        FlightSeeker flightSeeker = new FlightSeeker(testSetOfFlights(), null);
+        FlightSeeker flightSeeker = new FlightSeeker(testSetOfFlights());
 
         //When
-        List<Flight> searchedFlights = flightSeeker.getFlightsTo("Okecie");
+        List<Flight> searchedFlights = flightSeeker.getFlightsTo("Schiphol");
 
         //Then
+        List<String> transferAirports = new ArrayList<>();
+        transferAirports.add("Okecie");
+        transferAirports.add("Modlin");
+        transferAirports.add("De Gaulle");
         List<Flight> expectedList = new ArrayList<>();
-        expectedList.add(new Flight("LAX", "Shiphol", "Okecie"));
+        expectedList.add(new Flight("LAX", transferAirports, "Schiphol"));
         assertEquals(expectedList, searchedFlights);
     }
 
     @Test
     void testGetFlightsWithTransfer() {
         //Given
-        FlightSeeker flightSeeker = new FlightSeeker(null, testSetOfTransferFlights());
+        FlightSeeker flightSeeker = new FlightSeeker(testSetOfFlights());
 
         //When
-        List<FlightWithTransfer> searchedFlights = flightSeeker.getFlightRoute("LAX", "Modlin");
+        List<Flight> searchedFlights = flightSeeker.getFlightRoute("LAX", "Modlin");
 
         //Then
         List<String> stopoverAirports = new ArrayList<>();
         stopoverAirports.add("Okecie");
         stopoverAirports.add("Modlin");
         stopoverAirports.add("De Gaulle");
-        List<FlightWithTransfer> expectedList = new ArrayList<>();
-        expectedList.add(new FlightWithTransfer("LAX", stopoverAirports, "Schiphol"));
+        List<Flight> expectedList = new ArrayList<>();
+        expectedList.add(new Flight("LAX", stopoverAirports, "Schiphol"));
         assertEquals(expectedList, searchedFlights);
     }
 
-    private HashSet<Flight> testSetOfFlights() {
-        HashSet<Flight> listOfFlights = new HashSet<>();
-        listOfFlights.add(new Flight("LAX", "Shiphol", "Okecie"));
-        listOfFlights.add(new Flight("Modlin", "Schonefeld", "Heathrow"));
-        return listOfFlights;
-    }
 
-    private HashSet<FlightWithTransfer> testSetOfTransferFlights() {
+    private HashSet<Flight> testSetOfFlights() {
         List<String> transferAirports = new ArrayList<>();
         transferAirports.add("Okecie");
         transferAirports.add("Modlin");
         transferAirports.add("De Gaulle");
-        FlightWithTransfer flightWithTransfer = new FlightWithTransfer("LAX",
+        Flight flight = new Flight("LAX",
                 transferAirports, "Schiphol");
 
-        HashSet<FlightWithTransfer> transferFlightsList = new HashSet<>();
-        transferFlightsList.add(flightWithTransfer);
+        HashSet<Flight> transferFlightsList = new HashSet<>();
+        transferFlightsList.add(flight);
         return transferFlightsList;
     }
 }

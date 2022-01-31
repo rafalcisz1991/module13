@@ -1,16 +1,18 @@
 package com.kodilla.good.patterns.challenges.zadanie135;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Flight {
 
     final String departureAirport;
-    final String stopoverAirport;
+    final List<String> transferAirports;
     final String arrivalAirport;
 
-    public Flight(final String departureAirport, final String stopoverAirport, final String arrivalAirport) {
+    public Flight(final String departureAirport, final List<String> transferAirports, final String arrivalAirport) {
         this.departureAirport = departureAirport;
-        this.stopoverAirport = stopoverAirport;
+        this.transferAirports = transferAirports;
         this.arrivalAirport = arrivalAirport;
     }
 
@@ -18,8 +20,11 @@ public class Flight {
         return departureAirport;
     }
 
-    public String getStopoverAirport() {
-        return stopoverAirport;
+    public List<String> getAllAirports() {
+        List<String> allAirports = new ArrayList<>(transferAirports);
+        allAirports.add(0, getDepartureAirport());
+        allAirports.add(getArrivalAirport());
+        return allAirports;
     }
 
     public String getArrivalAirport() {
@@ -30,21 +35,26 @@ public class Flight {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Flight flight = (Flight) o;
-        return Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(stopoverAirport, flight.stopoverAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport);
+        Flight that = (Flight) o;
+        return Objects.equals(departureAirport, that.departureAirport) && Objects.equals(transferAirports, that.transferAirports) && Objects.equals(arrivalAirport, that.arrivalAirport);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(departureAirport, stopoverAirport, arrivalAirport);
+        return Objects.hash(departureAirport, transferAirports, arrivalAirport);
     }
 
     @Override
     public String toString() {
-        return "Flight{" +
+        return "FlightWithTransfer{" +
                 "departureAirport='" + departureAirport + '\'' +
-                ", stopoverAirport='" + stopoverAirport + '\'' +
+                ", transferAirports=" + transferAirports +
                 ", arrivalAirport='" + arrivalAirport + '\'' +
                 '}';
     }
 }
+
+
+
+
+

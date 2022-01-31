@@ -7,11 +7,9 @@ import java.util.stream.Collectors;
 public class FlightSeeker {
 
     final HashSet<Flight> flightSet;
-    final HashSet<FlightWithTransfer> flightWithTransferSet;
 
-    public FlightSeeker(final HashSet<Flight> flightSet, final HashSet<FlightWithTransfer> flightWithTransferSet) {
+    public FlightSeeker(final HashSet<Flight> flightSet) {
         this.flightSet = flightSet;
-        this.flightWithTransferSet = flightWithTransferSet;
     }
 
     public List<Flight> getFlightsFrom(String departureAirport) {
@@ -26,9 +24,9 @@ public class FlightSeeker {
                 .collect(Collectors.toList());
     }
 
-    public List<FlightWithTransfer> getFlightRoute(String departureAirport, String arrivalAirport) {
+    public List<Flight> getFlightRoute(String departureAirport, String arrivalAirport) {
 
-        return flightWithTransferSet.stream()
+        return flightSet.stream()
                 .filter(airport -> airport.getAllAirports().contains(departureAirport) &&
                         airport.getAllAirports().contains(arrivalAirport) && (((airport.getAllAirports()).
                         indexOf(departureAirport)) < airport.getAllAirports().indexOf(arrivalAirport)))
