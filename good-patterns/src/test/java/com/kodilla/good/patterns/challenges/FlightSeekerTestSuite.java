@@ -15,10 +15,10 @@ public class FlightSeekerTestSuite {
     @Test
     void testGetFlightsFrom() {
         //Given
-        FlightSeeker flightSeeker = new FlightSeeker();
+        FlightSeeker flightSeeker = new FlightSeeker(testSetOfFlights(), null);
 
         //When
-        List<Flight> searchedFlights = flightSeeker.getFlightsFrom("LAX", testSetOfFlights());
+        List<Flight> searchedFlights = flightSeeker.getFlightsFrom("LAX");
 
         //Then
         List<Flight> expectedList = new ArrayList<>();
@@ -29,10 +29,10 @@ public class FlightSeekerTestSuite {
     @Test
     void testGetFlightsTo() {
         //Given
-        FlightSeeker flightSeeker = new FlightSeeker();
+        FlightSeeker flightSeeker = new FlightSeeker(testSetOfFlights(), null);
 
         //When
-        List<Flight> searchedFlights = flightSeeker.getFlightsTo("Okecie", testSetOfFlights());
+        List<Flight> searchedFlights = flightSeeker.getFlightsTo("Okecie");
 
         //Then
         List<Flight> expectedList = new ArrayList<>();
@@ -43,10 +43,10 @@ public class FlightSeekerTestSuite {
     @Test
     void testGetFlightsWithTransfer() {
         //Given
-        FlightSeeker flightSeeker = new FlightSeeker();
+        FlightSeeker flightSeeker = new FlightSeeker(null, testSetOfTransferFlights());
 
         //When
-        List<FlightWithTransfer> searchedFlights = flightSeeker.getFlightRoute("LAX", testSetOfTransferFlights());
+        List<FlightWithTransfer> searchedFlights = flightSeeker.getFlightRoute("LAX", "Modlin");
 
         //Then
         List<String> stopoverAirports = new ArrayList<>();
