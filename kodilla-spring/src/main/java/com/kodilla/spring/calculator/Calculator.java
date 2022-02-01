@@ -14,24 +14,24 @@ public class Calculator {
         display.displayValue(a);
         System.out.println("will be added to: ");
         display.displayValue(b);
-        return a+b;
+        return a + b;
     }
 
     public double sub(double a, double b) {
         display.displayValue(a);
         display.displayValue(b);
-        return a-b;
+        return a - b;
     }
 
     public double mul(double a, double b) {
         display.displayValue(a);
         display.displayValue(b);
-        return a*b;
+        return a * b;
     }
 
     public double div(double a, double b) {
         display.displayValue(a);
         display.displayValue(b);
-        return a/b;
+        return a / b;
     }
 }
