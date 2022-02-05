@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(classes = {BoardTestSuite.class})
@@ -37,7 +38,7 @@ public class BoardTestSuite {
         boolean isEmptyTodoList = board.getToDoList().tasks.isEmpty();
 
         //Then
-        assertTrue(isEmptyDoneList);
+        assertFalse(isEmptyDoneList);
         assertTrue(isEmptyProgressList);
         assertTrue(isEmptyTodoList);
     }
