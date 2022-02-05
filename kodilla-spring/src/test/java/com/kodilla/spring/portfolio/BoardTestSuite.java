@@ -31,6 +31,7 @@ public class BoardTestSuite {
         Board board = context.getBean(Board.class);
 
         //When
+        board.doneList.tasks.add("qq");
         boolean isEmptyDoneList = board.getDoneList().tasks.isEmpty();
         boolean isEmptyProgressList = board.getInProgressList().tasks.isEmpty();
         boolean isEmptyTodoList = board.getToDoList().tasks.isEmpty();
