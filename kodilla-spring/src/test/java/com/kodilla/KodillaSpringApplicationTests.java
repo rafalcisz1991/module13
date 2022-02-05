@@ -6,13 +6,16 @@ import com.kodilla.spring.shape.Shape;
 import com.kodilla.spring.shape.Square;
 import com.kodilla.spring.shape.Triangle;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@SpringBootTest(classes = {KodillaSpringApplicationTests.class})
+@ExtendWith(SpringExtension.class)
 class KodillaSpringApplicationTests {
 
     @Test
