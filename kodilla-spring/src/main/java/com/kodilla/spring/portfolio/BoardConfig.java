@@ -29,18 +29,21 @@ public class BoardConfig {
     @Bean(name = "taskList1")
     @Scope("prototype")
     public TaskList getTaskList1() {
+        System.out.println("ToDo list added");
         return new TaskList();
     }
 
     @Bean(name = "taskList2")
     @Scope("prototype")
     public TaskList getTaskList2() {
+        System.out.println("InProgress List added");
         return new TaskList();
     }
 
     @Bean(name = "taskList3")
     @Scope("prototype")
     public TaskList getTaskList3() {
+        System.out.println("Done List added");
         return new TaskList();
     }
 }

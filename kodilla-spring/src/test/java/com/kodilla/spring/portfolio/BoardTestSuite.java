@@ -14,8 +14,11 @@ public class BoardTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
 
-        //When & Then
-      \
+        //When
+        board
+
+
+
     }
 
 
