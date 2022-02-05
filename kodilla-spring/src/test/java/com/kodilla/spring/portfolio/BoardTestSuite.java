@@ -15,9 +15,7 @@ public class BoardTestSuite {
         Board board = context.getBean(Board.class);
 
         //When & Then
-        board.getDoneList();
-        board.getInProgressList();
-        board.getDoneList();
+      \
     }
 
 
