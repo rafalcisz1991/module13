@@ -1,5 +1,6 @@
 package com.kodilla.spring.portfolio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class Board {
@@ -24,5 +25,13 @@ public final class Board {
 
     public TaskList getDoneList() {
         return doneList;
+    }
+
+    public List<TaskList> getAllTaskLists() {
+        List<TaskList> allLists = new ArrayList<>();
+        allLists.add(toDoList);
+        allLists.add(inProgressList);
+        allLists.add(toDoList);
+        return allLists;
     }
 }
