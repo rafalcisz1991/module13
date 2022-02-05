@@ -25,7 +25,7 @@ public class BoardTestSuite {
     }
 
     @Test
-    void testTaskElements() {
+    void testTaskListSize() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
         Board board = context.getBean(Board.class);
