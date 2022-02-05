@@ -40,8 +40,5 @@ public class BoardTestSuite {
         assertTrue(isEmptyDoneList);
         assertTrue(isEmptyProgressList);
         assertTrue(isEmptyTodoList);
-
     }
-
-
 }
