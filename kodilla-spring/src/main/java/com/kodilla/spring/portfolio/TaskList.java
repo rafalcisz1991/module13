@@ -10,8 +10,4 @@ public class TaskList {
     public TaskList() {
         tasks = new ArrayList<>();
     }
-
-    public List<String> getTasks() {
-        return tasks;
-    }
 }
