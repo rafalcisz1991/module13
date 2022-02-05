@@ -30,6 +30,8 @@ public class FlightSeeker {
                         airport.getAllAirports().contains(arrivalAirport) && (((airport.getAllAirports()).
                         indexOf(departureAirport)) < airport.getAllAirports().indexOf(arrivalAirport)))
                 .collect(Collectors.toList());
+
+        //
     }
 }
 
