@@ -1,5 +1,7 @@
 package com.kodilla.patterns.factory.tasks;
 
+import java.util.Random;
+
 public final class ShoppingTask implements Task{
 
     private final String taskName;
@@ -15,6 +17,11 @@ public final class ShoppingTask implements Task{
 
     @Override
     public void executeTask() {
+        Random random = new Random();
+        int randomNumber = random.nextInt(2);
+        if(randomNumber == 0) {
+            taskExecution = true;
+        }
         System.out.println("Task is being executed");
     }
 
