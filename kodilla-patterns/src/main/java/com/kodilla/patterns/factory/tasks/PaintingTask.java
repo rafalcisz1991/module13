@@ -17,8 +17,8 @@ public final class PaintingTask implements Task{
     public void executeTask() {
         if(color.equals("white") && whatToPaint.equals("walls")){
             taskExecution = true;
+            System.out.println("Task is being executed");
         }
-        System.out.println("Task is being executed");
     }
 
     @Override
