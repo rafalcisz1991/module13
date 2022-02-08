@@ -17,11 +17,8 @@ public final class ShoppingTask implements Task{
 
     @Override
     public void executeTask() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(2);
-        if(randomNumber == 0) {
+        if (quantity == 10) {
             taskExecution = true;
-            System.out.println(taskName + " is being executed");
         }
     }
 

@@ -1,5 +1,7 @@
 package com.kodilla.patterns.factory.tasks;
 
+import java.util.Random;
+
 public final class DrivingTask implements Task{
 
     private final String taskName;
@@ -15,7 +17,9 @@ public final class DrivingTask implements Task{
 
     @Override
     public void executeTask() {
-        System.out.println("Task is being executed");
+        if (using == 20){
+            taskExecution = true;
+        }
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.kodilla.patterns.factory.tasks;
 
+import java.util.Random;
+
 public final class PaintingTask implements Task{
 
     private final String taskName;
@@ -15,9 +17,8 @@ public final class PaintingTask implements Task{
 
     @Override
     public void executeTask() {
-        if(color.equals("white") && whatToPaint.equals("walls")){
+        if (color.equals("white")){
             taskExecution = true;
-            System.out.println("Task is being executed");
         }
     }
 
