@@ -19,6 +19,7 @@ public final class ShoppingTask implements Task{
     public void executeTask() {
         if (quantity == 10) {
             taskExecution = true;
+            System.out.println("Task executed!");
         }
     }
 

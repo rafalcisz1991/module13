@@ -19,6 +19,7 @@ public final class DrivingTask implements Task{
     public void executeTask() {
         if (using == 20){
             taskExecution = true;
+            System.out.println("Task executed!");
         }
     }
 

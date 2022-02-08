@@ -19,6 +19,7 @@ public final class PaintingTask implements Task{
     public void executeTask() {
         if (color.equals("white")){
             taskExecution = true;
+            System.out.println("Task executed!");
         }
     }
 
