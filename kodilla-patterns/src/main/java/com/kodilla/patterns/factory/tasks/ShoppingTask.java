@@ -21,8 +21,8 @@ public final class ShoppingTask implements Task{
         int randomNumber = random.nextInt(2);
         if(randomNumber == 0) {
             taskExecution = true;
+            System.out.println(taskName + " is being executed");
         }
-        System.out.println("Task is being executed");
     }
 
     @Override
