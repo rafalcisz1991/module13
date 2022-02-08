@@ -8,7 +8,7 @@ public final class Bigmac {
     private final String bun;
     private final int burgers;
     private final String sauce;
-    private List<String> ingredients;
+    private final List<String> ingredients;
 
     public static class BigmacBuilder {
         private String bun;
@@ -41,7 +41,7 @@ public final class Bigmac {
         }
     }
 
-    public Bigmac(final String bun, final int burgers, final String sauce, List<String> ingredients) {
+    private Bigmac(final String bun, final int burgers, final String sauce, final List<String> ingredients) {
         this.bun = bun;
         this.burgers = burgers;
         this.sauce = sauce;
