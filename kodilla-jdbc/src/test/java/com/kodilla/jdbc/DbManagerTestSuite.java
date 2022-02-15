@@ -61,7 +61,11 @@ class DbManagerTestSuite {
         String resultNames = "Result names are: ";
         int counter = 0;
         while (rs.next()) {
-            resultNames = resultNames + rs.getString("FIRSTNAME");
+            if (counter == 0) {
+                resultNames = resultNames + rs.getString("FIRSTNAME");
+            } else {
+                resultNames = resultNames + " and " + rs.getString("FIRSTNAME");
+            }
             System.out.println(rs.getString("FIRSTNAME") + " " + rs.getString("LASTNAME"));
             counter++;
         }
@@ -69,7 +73,7 @@ class DbManagerTestSuite {
         rs.close();
         statement.close();
         assertEquals(2, counter);
-        assertEquals("Result names are: JohnTom", resultNames);
+        assertEquals("Result names are: John and Tom", resultNames);
 
     }
 }
