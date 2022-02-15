@@ -58,13 +58,18 @@ class DbManagerTestSuite {
         ResultSet rs = statement.executeQuery(sqlQuery1);
 
         //THEN
+        String resultNames = "Result names are: ";
         int counter = 0;
         while (rs.next()) {
+            resultNames = resultNames + rs.getString("FIRSTNAME");
             System.out.println(rs.getString("FIRSTNAME") + " " + rs.getString("LASTNAME"));
             counter++;
         }
+        System.out.println(resultNames);
         rs.close();
         statement.close();
         assertEquals(2, counter);
+        assertEquals("Result names are: JohnTom", resultNames);
+
     }
 }
