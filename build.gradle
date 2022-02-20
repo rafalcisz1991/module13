@@ -1,6 +1,11 @@
+
+
 plugins {
+
     id 'java'
 }
+
+
 
 group = 'KodillaCourse'
 version = '0.0.1-SNAPSHOT'
@@ -19,9 +24,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
     testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '4.1.0'
 
-
 }
-
 
 
 test {
