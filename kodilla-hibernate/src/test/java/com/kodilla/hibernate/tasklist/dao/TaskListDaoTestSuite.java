@@ -24,12 +24,12 @@ class TaskListDaoTestSuite {
         //Given
         TaskList taskList = new TaskList(LISTNAME, DESCRIPTION);
         taskListDao.save(taskList);
-        String listName = taskList.getListName;
+        String listName = taskList.getListName();
 
         //When
         List<TaskList> readLists = taskListDao.findByListName(listName);
-        String expectedName = readLists.get(0).getListName;
-        String expectedDescription = readLists.get(0).getDescription;
+        String expectedName = readLists.get(0).getListName();
+        String expectedDescription = readLists.get(0).getDescription();
 
         //Then
         assertEquals(1, readLists.size());

@@ -31,10 +31,14 @@ public class TaskList {
     }
 
     @Column(name = "LISTNAME")
-    public String getListName;
+    public String getListName() {
+        return listName;
+    }
 
     @Column(name = "DESCRIPTION")
-    public String getDescription;
+    public String getDescription() {
+        return description;
+    }
 
     public void setListName(String listName) {
         this.listName = listName;
