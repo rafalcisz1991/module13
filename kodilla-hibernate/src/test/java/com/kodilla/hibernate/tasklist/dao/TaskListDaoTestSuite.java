@@ -4,11 +4,8 @@ import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class TaskListDaoTestSuite {
@@ -35,7 +32,6 @@ class TaskListDaoTestSuite {
         assertEquals(1, readLists.size());
         assertEquals("LIST 1", expectedName);
         assertEquals("My description", expectedDescription);
-
 
         //clean-up
         /*int id = readLists.get(0).getId();
