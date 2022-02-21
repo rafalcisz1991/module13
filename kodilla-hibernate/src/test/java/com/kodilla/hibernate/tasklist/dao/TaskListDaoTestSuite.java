@@ -28,12 +28,17 @@ class TaskListDaoTestSuite {
 
         //When
         List<TaskList> readLists = taskListDao.findByListName(listName);
+        String expectedName = readLists.get(0).getListName;
+        String expectedDescription = readLists.get(0).getDescription;
 
         //Then
         assertEquals(1, readLists.size());
+        assertEquals("LIST 1", expectedName);
+        assertEquals("My description", expectedDescription);
+
 
         //clean-up
-        int id = readLists.get(0).getId();
-        taskListDao.deleteById(id);
+        /*int id = readLists.get(0).getId();
+        taskListDao.deleteById(id);*/
     }
 }
