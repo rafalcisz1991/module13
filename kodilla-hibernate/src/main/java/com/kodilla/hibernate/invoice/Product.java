@@ -2,6 +2,7 @@ package com.kodilla.hibernate.invoice;
 
 import com.sun.istack.NotNull;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "PRODUCTS")
@@ -9,7 +10,7 @@ public class Product {
 
     private int id;
     private String name;
-    private Item item;
+    private List<Item> items;
 
     public Product() {
     }
@@ -40,13 +41,17 @@ public class Product {
         this.name = name;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "ITEM_ID")
-    public Item getItem() {
-        return item;
+    @OneToMany(
+            targetEntity = Item.class,
+            mappedBy = "itemList",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }

@@ -1,9 +1,12 @@
 package com.kodilla.hibernate.invoice;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import com.sun.istack.NotNull;
 
+import javax.persistence.*;
+import java.math.BigDecimal;
+
+@Entity
+@Table(name = "ITEMS")
 public class Item {
 
     private int id;
@@ -11,13 +14,61 @@ public class Item {
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
-    private List<Product> products = new ArrayList<>();
 
     public Item() {
-
     }
 
-    public Item() {
+    public Item(BigDecimal price, int quantity) {
+        this.price = price;
+        this.quantity = quantity;
+    }
 
+    @Id
+    @GeneratedValue
+    @NotNull
+    @Column(name="ID", unique=true)
+    public int getId() {
+        return id;
+    }
+    @Column(name = "PRICE")
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    @Column(name = "QUANTITY")
+    public int getQuantity() {
+        return quantity;
+    }
+
+    @Column(name = "VALUE")
+    public BigDecimal getValue() {
+        BigDecimal totalCost = price.multiply(BigDecimal.valueOf(quantity));
+        return totalCost;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setValue(BigDecimal value) {
+        this.value = value;
     }
 }
