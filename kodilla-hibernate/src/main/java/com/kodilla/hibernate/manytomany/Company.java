@@ -6,6 +6,13 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retrieveFirstThreeCharsFromName",
+        query = "SELECT * FROM COMPANIES" +
+                "WHERE LEFT(SOF, 3)",
+        resultClass = Company.class
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
