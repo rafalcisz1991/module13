@@ -43,8 +43,8 @@ public class Item {
 
     @Column(name = "VALUE")
     public BigDecimal getValue() {
-        BigDecimal totalCost = price.multiply(BigDecimal.valueOf(quantity));
-        return totalCost;
+        value = price.multiply(BigDecimal.valueOf(quantity));
+        return value;
     }
 
     @ManyToOne
