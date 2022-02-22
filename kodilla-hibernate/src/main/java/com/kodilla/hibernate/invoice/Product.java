@@ -43,7 +43,7 @@ public class Product {
 
     @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "itemList",
+            mappedBy = "items",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
