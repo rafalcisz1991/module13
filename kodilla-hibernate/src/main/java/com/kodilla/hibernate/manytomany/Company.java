@@ -9,7 +9,7 @@ import java.util.List;
 @NamedNativeQuery(
         name = "Company.retrieveFirstThreeCharsFromName",
         query = "SELECT * FROM COMPANIES" +
-                "WHERE LEFT(SOF, 3)",
+                "WHERE LEFT(COMPANY_NAME, 3) = :SEARCHVALUE",
         resultClass = Company.class
 )
 
