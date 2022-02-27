@@ -9,8 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class TaskListDaoTestSuite {
@@ -36,6 +36,7 @@ class TaskListDaoTestSuite {
         String expectedName = readLists.get(0).getListName();
         String expectedDescription = readLists.get(0).getDescription();
         assertEquals(1, readLists.size());
+        assertFalse(readLists.isEmpty());
         assertEquals("LIST 1", expectedName);
         assertEquals("My description", expectedDescription);
 
@@ -43,7 +44,7 @@ class TaskListDaoTestSuite {
         int id = readLists.get(0).getId();
         taskListDao.deleteById(id);
     }
-    //zadanie 17.2
+
 
     @Test
     void testTaskListDaoSaveWithTasks() {
@@ -65,7 +66,7 @@ class TaskListDaoTestSuite {
         int id = taskList.getId();
 
         //Then
-        assertNotEquals(0, id);
+        assertTrue(id > 0);
 
         //CleanUp
         taskListDao.deleteById(id);
