@@ -54,6 +54,7 @@ class InvoiceDaoTestSuite {
         notebookItem.add(notebooks);
         notebook.setItems(notebookItem);
 
+
         Invoice invoice1 = new Invoice(NUMBER);
         notebooks.setInvoice(invoice1);
         invoice1.setItems(notebookItem);
