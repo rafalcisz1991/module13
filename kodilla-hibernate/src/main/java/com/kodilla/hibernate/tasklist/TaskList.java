@@ -18,7 +18,6 @@ public class TaskList {
     private List<Task> tasks = new ArrayList<>();
 
     public TaskList() {
-
     }
 
     public TaskList(String listName, String description) {
