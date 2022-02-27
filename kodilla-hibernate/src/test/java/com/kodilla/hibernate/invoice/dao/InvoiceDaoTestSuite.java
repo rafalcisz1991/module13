@@ -49,16 +49,11 @@ class InvoiceDaoTestSuite {
         //Given
         Product notebook = new Product("Notebook");
         Item notebooks = new Item(new BigDecimal("399.99"), 10);
-        ArrayList<Item> notebookItem = new ArrayList<>();
-        notebookItem.add(notebooks);
-        notebook.setItems(notebookItem);
         notebooks.setProduct(notebook);
 
         Invoice invoice1 = new Invoice(NUMBER);
-
-        invoice1.setItems(notebookItem);
         notebooks.setInvoice(invoice1);
-
+        invoice1.getItems().add(notebooks);
 
         //When
         invoiceDao.save(invoice1);
