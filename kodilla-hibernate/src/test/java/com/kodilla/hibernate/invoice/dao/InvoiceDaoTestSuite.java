@@ -55,7 +55,7 @@ class InvoiceDaoTestSuite {
         Item notebooks = new Item(new BigDecimal("399.99"), 10);
         notebooks.setProduct(notebook);
         ArrayList<Item> notebookItem = new ArrayList<>();
-        notebookItem.add(notebooks);
+        notebook.setItems(notebookItem);
         notebook.setItems(notebookItem);
 
         Invoice invoice1 = new Invoice(NUMBER);
@@ -64,10 +64,9 @@ class InvoiceDaoTestSuite {
         invoice1.setItems(notebookItem);
 
         //When
-        //itemDao.save(notebooks);
-        productDao.save(notebook);
-
         invoiceDao.save(invoice1);
+        productDao.save(notebook);
+        itemDao.save(notebooks);
 
         int expectedInvoiceID = invoice1.getId();
         String expectedInvoiceNumber = invoice1.getNumber();
@@ -77,12 +76,12 @@ class InvoiceDaoTestSuite {
         //Then
         assertEquals(0, expectedInvoiceID);
         assertEquals("12345/2022", expectedInvoiceNumber);
-        assertEquals(new BigDecimal("1234,10"), expectedInvoiceValue);
-        assertEquals("qwr", allProductsNames);
+        assertEquals(new BigDecimal("3999.90"), expectedInvoiceValue);
+        assertEquals("Notebook", allProductsNames);
 
         //cleanUp
         invoiceDao.deleteById(expectedInvoiceID);
-        invoiceDao.deleteAll();
+        //invoiceDao.deleteAll();
     }
 }
 
