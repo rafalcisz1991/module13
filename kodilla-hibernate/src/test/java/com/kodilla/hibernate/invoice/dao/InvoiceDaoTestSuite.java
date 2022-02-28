@@ -21,9 +21,13 @@ class InvoiceDaoTestSuite {
     @Autowired
     private InvoiceDao invoiceDao;
 
-    @Autowired ItemDao itemDao;
+    @Autowired
+    private ItemDao itemDao;
 
-    @Autowired ProductDao productDao;
+    @Autowired
+    private ProductDao productDao;
+
+
 
     private static final String NUMBER = "12345/2022";
 
@@ -50,11 +54,63 @@ class InvoiceDaoTestSuite {
         Product notebook = new Product("Notebook");
         Item notebooks = new Item(new BigDecimal("399.99"), 10);
         notebooks.setProduct(notebook);
+        ArrayList<Item> notebookItem = new ArrayList<>();
+        notebookItem.add(notebooks);
+        notebook.setItems(notebookItem);
+
+        Invoice invoice1 = new Invoice(NUMBER);
+
+        notebooks.setInvoice(invoice1);
+        invoice1.setItems(notebookItem);
+
+        //When
+        //itemDao.save(notebooks);
+        productDao.save(notebook);
+
+        invoiceDao.save(invoice1);
+
+        int expectedInvoiceID = invoice1.getId();
+        String expectedInvoiceNumber = invoice1.getNumber();
+        BigDecimal expectedInvoiceValue = (invoice1.getItems().get(0).getValue());
+        String allProductsNames = invoice1.getItems().get(0).getProduct().getName();
+
+        //Then
+        assertEquals(0, expectedInvoiceID);
+        assertEquals("12345/2022", expectedInvoiceNumber);
+        assertEquals(new BigDecimal("1234,10"), expectedInvoiceValue);
+        assertEquals("qwr", allProductsNames);
+
+        //cleanUp
+        invoiceDao.deleteById(expectedInvoiceID);
+        invoiceDao.deleteAll();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+ /*   @Test
+    void testSaveItemsAndProducts() {
+        //Given
+        Product notebook = new Product("Notebook");
+        Item notebooks = new Item(new BigDecimal("399.99"), 10);
+        notebooks.setProduct(notebook);
+        itemDao.save(notebooks);
+        ArrayList<Item> notebookItem = new ArrayList<>();
+        notebookItem.add(notebooks);
+        notebook.setItems(notebookItem);
+        productDao.save(notebook);
 
         Invoice invoice1 = new Invoice(NUMBER);
         notebooks.setInvoice(invoice1);
-        invoice1.getItems().add(notebooks);
-
+        invoice1.setItems(notebookItem);
 
         //When
         invoiceDao.save(invoice1);
@@ -71,5 +127,6 @@ class InvoiceDaoTestSuite {
 
         //cleanUp
         invoiceDao.deleteById(expectedInvoiceID);
+        invoiceDao.deleteAll();
     }
-}
+}*/
