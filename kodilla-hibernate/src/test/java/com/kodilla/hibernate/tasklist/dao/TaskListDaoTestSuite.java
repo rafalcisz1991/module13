@@ -33,10 +33,10 @@ class TaskListDaoTestSuite {
         List<TaskList> readLists = taskListDao.findByListName(listName);
 
         //Then
+        assertFalse(readLists.isEmpty());
         String expectedName = readLists.get(0).getListName();
         String expectedDescription = readLists.get(0).getDescription();
         assertEquals(1, readLists.size());
-        assertFalse(readLists.isEmpty());
         assertEquals("LIST 1", expectedName);
         assertEquals("My description", expectedDescription);
 
