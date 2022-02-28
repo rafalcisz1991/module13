@@ -32,7 +32,6 @@ class TaskListDaoTestSuite {
         //When
         List<TaskList> readLists = taskListDao.findByListName(listName);
 
-
         //Then
         assertFalse(readLists.isEmpty());
         String expectedName = readLists.get(0).getListName();
