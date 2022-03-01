@@ -84,9 +84,9 @@ class InvoiceDaoTestSuite {
         assertEquals("Notebook", allProductsNames);
 
         //cleanUp
-        invoiceDao.deleteById(expectedInvoiceID);
-        //productDao.deleteAll();
-        //itemDao.deleteAll();
+        invoiceDao.deleteAll();
+        productDao.deleteAll();
+        itemDao.deleteAll();
     }
 }
 
