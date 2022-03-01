@@ -9,8 +9,8 @@ import java.util.List;
 
 
 @NamedQuery(
-        name = "Employee.retrieveGivenName",
-        query = "FROM Employee WHERE firstname = :FIRSTNAME"
+        name = "Employee.retrieveSoughtName",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
 )
 
 
