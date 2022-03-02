@@ -8,8 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class CompanyDaoTestSuite {
@@ -52,28 +51,30 @@ class CompanyDaoTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
-
         //Then
-        String expectedFirstName = (employeeDao.retrieveSoughtName("Kovalsky")).get(0).getFirstname();
-        String expectedCompanyName = ((companyDao.retrieveFirstThreeCharsFromName("Sof")).get(0)).getName();
-        String expectedEmployee = ((((companyDao.retrieveFirstThreeCharsFromName("Sof")).
-                get(0)).getEmployees()).get(0)).getFirstname();
+        String expectedFirstName = employeeDao.retrieveSoughtName("Kovalsky").get(0).getFirstname();
+        String expectedCompanyName = companyDao.retrieveFirstThreeCharsFromName("Sof").get(0).getName();
+        String expectedEmployee = companyDao.retrieveFirstThreeCharsFromName("Sof").
+                get(0).getEmployees().get(0).getFirstname();
 
         assertNotEquals(0, softwareMachineId);
         assertNotEquals(0, dataMaestersId);
         assertNotEquals(0, greyMatterId);
+        assertTrue(employeeDao.count() != 0);
         assertEquals(1, (employeeDao.retrieveSoughtName("Smith")).size());
         assertEquals("Linda", expectedFirstName);
+        assertTrue(companyDao.count() != 0);
         assertEquals(1, (companyDao.retrieveFirstThreeCharsFromName("Sof").size()));
         assertEquals("Software Machine", expectedCompanyName);
         assertEquals("John", expectedEmployee);
 
         //CleanUp
         try {
-            companyDao.deleteAll();
-
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
         } catch (Exception e) {
-         //do nothing
-        }
+            //do nothing
+       }
     }
 }

@@ -59,8 +59,7 @@ public class Employee {
         this.lastname = lastname;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+    @ManyToMany(cascade = CascadeType.ALL
     )
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
@@ -74,4 +73,5 @@ public class Employee {
     private void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
+
 }
