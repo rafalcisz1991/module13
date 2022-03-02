@@ -1,16 +1,13 @@
 package com.kodilla.hibernate.manytomany;
 
 import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.retrieveFirstThreeCharsFromName",
-        query = "SELECT * FROM COMPANIES" +
-                "WHERE LEFT(COMPANY_NAME, 3) = :SEARCHVALUE",
-
+        query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME, 3) = :SEARCHVALUE",
         resultClass = Company.class
 )
 

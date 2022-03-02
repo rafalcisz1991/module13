@@ -48,16 +48,22 @@ class CompanyDaoTestSuite {
         int dataMaestersId = dataMaesters.getId();
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
-        String expectedFirstName = ((employeeDao.retrieveSoughtName("Kovalsky")).get(0)).getFirstname();
+
 
         //Then
+        String expectedFirstName = ((employeeDao.retrieveSoughtName("Kovalsky")).get(0)).getFirstname();
+        String expectedCompanyName = ((companyDao.retrieveFirstThreeCharsFromName("Sof")).get(0)).getName();
+        String expectedEmployee = ((((companyDao.retrieveFirstThreeCharsFromName("Sof")).
+                get(0)).getEmployees()).get(0)).getFirstname();
+
         assertNotEquals(0, softwareMachineId);
         assertNotEquals(0, dataMaestersId);
         assertNotEquals(0, greyMatterId);
-        //assertEquals(1, (employeeDao.retrieveSoughtName("Smith")).size());
-        //assertEquals("John", expectedFirstName);
+        assertEquals(1, (employeeDao.retrieveSoughtName("Smith")).size());
+        assertEquals("Linda", expectedFirstName);
         assertEquals(1, (companyDao.retrieveFirstThreeCharsFromName("Sof").size()));
-
+        assertEquals("Software Machine", expectedCompanyName);
+        assertEquals("John", expectedEmployee);
 
         //CleanUp
         try {
