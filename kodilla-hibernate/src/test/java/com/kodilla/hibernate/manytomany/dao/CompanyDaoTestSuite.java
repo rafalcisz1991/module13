@@ -61,10 +61,10 @@ class CompanyDaoTestSuite {
         assertNotEquals(0, dataMaestersId);
         assertNotEquals(0, greyMatterId);
         assertTrue(employeeDao.count() != 0);
-        assertEquals(1, (employeeDao.retrieveSoughtName("Smith")).size());
+        assertEquals(1, employeeDao.retrieveSoughtName("Smith").size());
         assertEquals("Linda", actualFirstName);
         assertTrue(companyDao.count() != 0);
-        assertEquals(1, (companyDao.retrieveFirstThreeCharsFromName("Sof").size()));
+        assertEquals(1, companyDao.retrieveFirstThreeCharsFromName("Sof").size());
         assertEquals("Software Machine", actualCompanyName);
         assertEquals("John", actualEmployee);
 
