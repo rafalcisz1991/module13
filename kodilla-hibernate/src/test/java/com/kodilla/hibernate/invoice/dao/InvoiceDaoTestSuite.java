@@ -63,12 +63,10 @@ class InvoiceDaoTestSuite {
         Product savedProduct = productDao.save(notebook);
         Item savedItem = itemDao.save(notebooks);
 
-        int expectedInvoiceID = invoice1.getId();
+        //Then
         String expectedInvoiceNumber = invoiceDao.findById(savedInvoice.getId()).get().getNumber();
         BigDecimal expectedInvoiceValue = itemDao.findById(savedItem.getId()).get().getValue();
         String productName = productDao.findById(savedProduct.getId()).get().getName();
-
-        //Then
         assertEquals(1, invoiceDao.count());
         assertEquals("12345/2022", expectedInvoiceNumber);
         assertEquals(new BigDecimal("3999.90"), expectedInvoiceValue);
