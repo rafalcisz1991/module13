@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -19,6 +21,7 @@ class CompanyDaoTestSuite {
     private EmployeeDao employeeDao;
 
     @Test
+    @Transactional
     void testSaveManyToMany() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
@@ -51,7 +54,7 @@ class CompanyDaoTestSuite {
 
 
         //Then
-        String expectedFirstName = ((employeeDao.retrieveSoughtName("Kovalsky")).get(0)).getFirstname();
+        String expectedFirstName = (employeeDao.retrieveSoughtName("Kovalsky")).get(0).getFirstname();
         String expectedCompanyName = ((companyDao.retrieveFirstThreeCharsFromName("Sof")).get(0)).getName();
         String expectedEmployee = ((((companyDao.retrieveFirstThreeCharsFromName("Sof")).
                 get(0)).getEmployees()).get(0)).getFirstname();

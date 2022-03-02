@@ -47,12 +47,14 @@ public class Item {
         return value;
     }
 
-    @ManyToOne
+    @ManyToOne(
+    )
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
-    @ManyToOne
+    @ManyToOne(
+    )
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;

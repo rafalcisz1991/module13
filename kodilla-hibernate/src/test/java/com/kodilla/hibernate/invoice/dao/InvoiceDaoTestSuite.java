@@ -27,8 +27,6 @@ class InvoiceDaoTestSuite {
     @Autowired
     private ProductDao productDao;
 
-
-
     private static final String NUMBER = "12345/2022";
 
     @Test
@@ -56,37 +54,30 @@ class InvoiceDaoTestSuite {
         notebooks.setProduct(notebook);
         ArrayList<Item> notebookItem = new ArrayList<>();
         notebook.setItems(notebookItem);
-        notebook.setItems(notebookItem);
-
         Invoice invoice1 = new Invoice(NUMBER);
-
         notebooks.setInvoice(invoice1);
         invoice1.setItems(notebookItem);
 
-
         //When
-        invoiceDao.save(invoice1);
-        productDao.save(notebook);
-        itemDao.save(notebooks);
-        //funkcje czyszczenia zadziałały dopiero po dodaniu poniższego wiersza
-        invoice1.getItems().add(notebooks);
+        Invoice savedInvoice = invoiceDao.save(invoice1);
+        Product savedProduct = productDao.save(notebook);
+        Item savedItem = itemDao.save(notebooks);
 
         int expectedInvoiceID = invoice1.getId();
-        String expectedInvoiceNumber = invoice1.getNumber();
-        BigDecimal expectedInvoiceValue = (invoice1.getItems().get(0).getValue());
-        String allProductsNames = invoice1.getItems().get(0).getProduct().getName();
-
+        String expectedInvoiceNumber = invoiceDao.findById(savedInvoice.getId()).get().getNumber();
+        BigDecimal expectedInvoiceValue = itemDao.findById(savedItem.getId()).get().getValue();
+        String productName = productDao.findById(savedProduct.getId()).get().getName();
 
         //Then
-        //assertEquals(194, expectedInvoiceID);
+        assertEquals(1, invoiceDao.count());
         assertEquals("12345/2022", expectedInvoiceNumber);
         assertEquals(new BigDecimal("3999.90"), expectedInvoiceValue);
-        assertEquals("Notebook", allProductsNames);
+        assertEquals("Notebook", productName);
 
         //cleanUp
-        invoiceDao.deleteAll();
-        productDao.deleteAll();
-        itemDao.deleteAll();
+        itemDao.deleteById(savedItem.getId());
+        invoiceDao.deleteById(savedInvoice.getId());
+        productDao.deleteById(savedProduct.getId());
     }
 }
 
