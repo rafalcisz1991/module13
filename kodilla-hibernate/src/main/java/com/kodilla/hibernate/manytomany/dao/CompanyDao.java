@@ -18,5 +18,5 @@ public interface CompanyDao extends CrudRepository<Company, Integer> {
     List<Company> retrieveFirstThreeCharsFromName(@Param("SEARCHVALUE") String first3Chars);
 
     @Query(nativeQuery = true)
-    List<Company> retrieveSearchedName(@Param("FRAGMENT") String nameFragment);
+    List<Company> retrieveSearchedName(@Param("%FRAGMENT%") String nameFragment);
 }
