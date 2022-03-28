@@ -30,14 +30,9 @@ import java.util.List;
 public class EmployeeCompanyFacade {
 
     @Autowired
-    public EmployeeCompanyFacade () {
-    }
-
-    @Autowired
     private EmployeeDao employeeDao;
 
     List <Employee> employeesList = new ArrayList<>();
-
     List <Company> companyList = new ArrayList<>();
 
     @Autowired

@@ -2,11 +2,14 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import com.kodilla.hibernate.manytomany.facade.EmployeeCompanyFacade;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,6 +21,9 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private EmployeeDao employeeDao;
+
+    @Autowired
+    private EmployeeCompanyFacade employeeCompanyFacade;
 
     @Test
     @Transactional
@@ -79,6 +85,22 @@ class CompanyDaoTestSuite {
     }
 
     @Test void testNameFragmentSearch() {
-        //
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Company softwareMachine = new Company("Software Machine");
+        softwareMachine.getEmployees().add(johnSmith);
+        johnSmith.getCompanies().add(softwareMachine);
+
+        //When
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        employeeDao.save(johnSmith);
+        int johnSmithId = johnSmith.getId();
+
+        //Then
+        List<Employee> lookedEmployees = employeeCompanyFacade.searchEmployee("jo");
+        assertTrue(employeeDao.count() != 0);
+        assertTrue(companyDao.count() != 0);
+        assertEquals(lookedEmployees.size(), 1);
     }
 }
