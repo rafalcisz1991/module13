@@ -101,7 +101,7 @@ class CompanyDaoTestSuite {
         List<Employee> lookedEmployees = employeeCompanyFacade.searchEmployee("John");
         assertTrue(employeeDao.count() != 0);
         assertTrue(companyDao.count() != 0);
-        assertEquals(lookedEmployees.size(), 1);
+        assertEquals(1, lookedEmployees.size());
 
         //CleanUp
         try{
