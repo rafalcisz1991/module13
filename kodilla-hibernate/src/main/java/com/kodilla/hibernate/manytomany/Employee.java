@@ -12,6 +12,12 @@ import java.util.List;
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
 
+@NamedNativeQuery(
+        name = "Employee.retrieveSearchedName",
+        query = "SELECT * FROM EMPLOYEES WHERE FIRSTNAME LIKE = :FRAGMENT",
+        resultClass = Employee.class
+)
+
 @Entity
 @Service
 @Table(name = "EMPLOYEES")

@@ -13,6 +13,12 @@ import java.util.List;
         resultClass = Company.class
 )
 
+@NamedNativeQuery(
+        name = "Company.retrieveSearchedName",
+        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE = :FRAGMENT",
+        resultClass = Company.class
+)
+
 @Entity
 @Service
 @Table(name = "COMPANIES")

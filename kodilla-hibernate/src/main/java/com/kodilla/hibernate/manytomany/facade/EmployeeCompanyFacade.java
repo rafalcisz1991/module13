@@ -14,18 +14,6 @@ import javax.persistence.NamedNativeQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Employee.retrieveSearchedName",
-        query = "SELECT * FROM EMPLOYEES WHERE FIRSTNAME LIKE = :'%FRAGMENT%' ",
-        resultClass = Employee.class
-)
-
-@NamedNativeQuery(
-        name = "Company.retrieveSearchedName",
-        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE = :'%FRAGMENT%' ",
-        resultClass = Company.class
-)
-
 @Service
 public class EmployeeCompanyFacade {
 
