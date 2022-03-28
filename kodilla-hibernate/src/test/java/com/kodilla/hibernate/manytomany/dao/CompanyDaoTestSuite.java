@@ -98,9 +98,19 @@ class CompanyDaoTestSuite {
         int johnSmithId = johnSmith.getId();
 
         //Then
-        List<Employee> lookedEmployees = employeeCompanyFacade.searchEmployee("jo");
+        List<Employee> lookedEmployees = employeeCompanyFacade.searchEmployee("John");
         assertTrue(employeeDao.count() != 0);
         assertTrue(companyDao.count() != 0);
         assertEquals(lookedEmployees.size(), 1);
+
+        //CleanUp
+        try{
+            companyDao.deleteById(softwareMachineId);
+            employeeDao.deleteById(johnSmithId);
+        } catch (Exception e) {
+
+        }
     }
+
+
 }

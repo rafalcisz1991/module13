@@ -17,6 +17,10 @@ import java.util.List;
 @Service
 public class EmployeeCompanyFacade {
 
+    public EmployeeCompanyFacade(){
+
+    }
+
     @Autowired
     private EmployeeDao employeeDao;
 
