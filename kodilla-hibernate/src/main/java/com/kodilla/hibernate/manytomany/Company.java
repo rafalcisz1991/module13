@@ -1,6 +1,8 @@
 package com.kodilla.hibernate.manytomany;
 
 import com.sun.istack.NotNull;
+import org.springframework.stereotype.Service;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 )
 
 @Entity
+@Service
 @Table(name = "COMPANIES")
 public class Company {
 

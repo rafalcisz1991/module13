@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
+import com.kodilla.hibernate.manytomany.Employee;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -15,4 +16,7 @@ public interface CompanyDao extends CrudRepository<Company, Integer> {
 
     @Query(nativeQuery = true)
     List<Company> retrieveFirstThreeCharsFromName(@Param("SEARCHVALUE") String first3Chars);
+
+    @Query(nativeQuery = true)
+    List<Company> retrieveSearchedName(@Param("FRAGMENT") String nameFragment);
 }

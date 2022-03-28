@@ -77,4 +77,8 @@ class CompanyDaoTestSuite {
             //do nothing
        }
     }
+
+    @Test testNameFragmentSearch() {
+        //
+    }
 }
