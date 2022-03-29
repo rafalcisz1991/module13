@@ -14,7 +14,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Employee.retrieveSearchedName",
-        query = "SELECT * FROM EMPLOYEES WHERE FIRSTNAME LIKE 'FRAGMENT'",
+        query = "SELECT * FROM EMPLOYEES WHERE firstname LIKE '%FRAGMENT%'",
         resultClass = Employee.class
 )
 
@@ -28,6 +28,7 @@ public class Employee {
     private String lastname;
     private List<Company> companies = new ArrayList<>();
 
+
     public Employee() {
     }
 
@@ -35,6 +36,8 @@ public class Employee {
         this.firstname = firstname;
         this.lastname = lastname;
     }
+
+
 
     @Id
     @GeneratedValue

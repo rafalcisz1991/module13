@@ -18,24 +18,20 @@ import java.util.List;
 public class EmployeeCompanyFacade {
 
     public EmployeeCompanyFacade(){
-
     }
 
     @Autowired
     private EmployeeDao employeeDao;
-
-    List <Employee> employeesList = new ArrayList<>();
-    List <Company> companyList = new ArrayList<>();
 
     @Autowired
     private CompanyDao companyDao;
 
     public List<Employee> searchEmployee (String nameFragment) {
 
-        return employeesList = employeeDao.retrieveSearchedName(nameFragment);
+        return employeeDao.retrieveSearchedName(nameFragment);
     }
 
     public List<Company>  searchCompany (String nameFragment) {
-        return companyList = companyDao.retrieveSearchedName(nameFragment);
+        return companyDao.retrieveSearchedName(nameFragment);
     }
 }

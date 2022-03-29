@@ -98,10 +98,13 @@ class CompanyDaoTestSuite {
         int johnSmithId = johnSmith.getId();
 
         //Then
-        List<Employee> lookedEmployees = employeeCompanyFacade.searchEmployee("John");
+        List<Employee> lookedEmployees = employeeCompanyFacade.searchEmployee("FRAG");
+        List<Employee> newEmployees = employeeDao.retrieveSearchedName("oh");
         assertTrue(employeeDao.count() != 0);
         assertTrue(companyDao.count() != 0);
-        assertEquals(1, lookedEmployees.size());
+        assertEquals(1, newEmployees.size());
+        //assertEquals(1, lookedEmployees.size());
+
 
         //CleanUp
         try{
