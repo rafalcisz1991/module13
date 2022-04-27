@@ -136,12 +136,12 @@ class CompanyDaoTestSuite {
 
         //Then
         List<Company> lookedCompanies = employeeCompanyFacade.searchCompany("ftw");
+        assertTrue(lookedCompanies.size() > 0);
         String actualCompanyName = lookedCompanies.get(0).getName();
         List<Employee> actualEmployees = lookedCompanies.get(0).getEmployees();
         String actualEmployeeFirstName = actualEmployees.get(0).getFirstname();
         String actualEmployeeLastName = actualEmployees.get(0).getLastname();
 
-        assertTrue(lookedCompanies.size() > 0);
         assertEquals(1, lookedCompanies.size());
         assertEquals("Software Machine", actualCompanyName);
         assertTrue(actualEmployees.size() > 0);
