@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -81,10 +82,10 @@ class CompanyDaoTestSuite {
             companyDao.deleteById(greyMatterId);
         } catch (Exception e) {
             //do nothing
-       }
+        }
     }
 
-    @Test void testNameFragmentSearch() {
+    @Test void testEmployeeNameFragmentSearch() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Company softwareMachine = new Company("Software Machine");
@@ -98,13 +99,19 @@ class CompanyDaoTestSuite {
         int johnSmithId = johnSmith.getId();
 
         //Then
-        List<Employee> lookedEmployees = employeeCompanyFacade.searchEmployee("FRAG");
-        List<Employee> newEmployees = employeeDao.retrieveSearchedName("oh");
-        assertTrue(employeeDao.count() != 0);
-        assertTrue(companyDao.count() != 0);
-        assertEquals(1, newEmployees.size());
-        //assertEquals(1, lookedEmployees.size());
+        List<Employee> lookedEmployees = employeeCompanyFacade.searchEmployee("oh");
+        String actualFirstName = lookedEmployees.get(0).getFirstname();
+        String actualLastName = lookedEmployees.get(0).getLastname();
+        List<Company> actualCompanies = lookedEmployees.get(0).getCompanies();
+        String actualCompanyName = actualCompanies.get(0).getName();
 
+        assertTrue(lookedEmployees.size() > 0);
+        assertEquals(1, lookedEmployees.size());
+        assertEquals("John", actualFirstName);
+        assertEquals("Smith", actualLastName);
+        assertTrue(actualCompanies.size() > 0);
+        assertEquals(1, actualCompanies.size());
+        assertEquals("Software Machine", actualCompanyName);
 
         //CleanUp
         try{
@@ -115,5 +122,41 @@ class CompanyDaoTestSuite {
         }
     }
 
+    @Test
+    void testCompanyNameFragmentSearch() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Company softwareMachine = new Company("Software Machine");
+        softwareMachine.getEmployees().add(johnSmith);
+        johnSmith.getCompanies().add(softwareMachine);
 
+        //When
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        employeeDao.save(johnSmith);
+        int johnSmithId = johnSmith.getId();
+
+        //Then
+        List<Company> lookedCompanies = employeeCompanyFacade.searchCompany("ftw");
+        String actualCompanyName = lookedCompanies.get(0).getName();
+        List<Employee> actualEmployees = lookedCompanies.get(0).getEmployees();
+        String actualEmployeeFirstName = actualEmployees.get(0).getFirstname();
+        String actualEmployeeLastName = actualEmployees.get(0).getLastname();
+
+        assertTrue(lookedCompanies.size() > 0);
+        assertEquals(1, lookedCompanies.size());
+        assertEquals("Software Machine", actualCompanyName);
+        assertTrue(actualEmployees.size() > 0);
+        assertEquals("Smith", actualEmployeeLastName);
+        assertEquals("John", actualEmployeeFirstName);
+        assertEquals(1, actualEmployees.size());
+
+        //CleanUp
+        try{
+            companyDao.deleteById(softwareMachineId);
+            employeeDao.deleteById(johnSmithId);
+        } catch (Exception e) {
+
+        }
+    }
 }

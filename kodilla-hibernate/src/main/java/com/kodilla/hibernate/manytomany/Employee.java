@@ -14,7 +14,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Employee.retrieveSearchedName",
-        query = "SELECT * FROM EMPLOYEES WHERE firstname LIKE '%FRAGMENT%'",
+        query = "SELECT * FROM EMPLOYEES WHERE FIRSTNAME LIKE concat('%', :FRAGMENT, '%' )",
         resultClass = Employee.class
 )
 
@@ -28,7 +28,6 @@ public class Employee {
     private String lastname;
     private List<Company> companies = new ArrayList<>();
 
-
     public Employee() {
     }
 
@@ -36,8 +35,6 @@ public class Employee {
         this.firstname = firstname;
         this.lastname = lastname;
     }
-
-
 
     @Id
     @GeneratedValue
@@ -71,7 +68,7 @@ public class Employee {
         this.lastname = lastname;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER
     )
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
@@ -85,5 +82,4 @@ public class Employee {
     private void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
-
 }
