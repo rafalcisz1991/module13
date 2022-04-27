@@ -19,10 +19,8 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
-
     @Autowired
     private EmployeeDao employeeDao;
-
     @Autowired
     private EmployeeCompanyFacade employeeCompanyFacade;
 
