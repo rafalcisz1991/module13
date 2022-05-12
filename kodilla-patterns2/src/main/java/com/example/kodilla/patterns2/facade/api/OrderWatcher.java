@@ -24,7 +24,7 @@ public class OrderWatcher {
         LOGGER.info("Final logging of the event");
     }
 
-    //Nie uwzględnia mi metody, liczącej czas trwania sprawdzanej metody processOrder() - tak jak w module.
+    //Nie uwzględnia mi metody, liczącej czas trwania sprawdzanej metody processOrder() - tak jak w module 24.3.
 
     /*@Around("execution(* com.example.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))")
     public Object measureTime(final ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
