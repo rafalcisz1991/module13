@@ -20,7 +20,7 @@ public class HomeworkTasks implements Observable {
     }
 
     @Override
-    public void registryObserver(Observer observer) {
+    public void registerObserver(Observer observer) {
         observers.add(observer);
     }
 

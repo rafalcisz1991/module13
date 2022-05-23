@@ -14,9 +14,9 @@ class HomeworkTestSuite {
         HomeworkTasks attendee3List = new Attendee3List();
         Mentor mentor1 = new Mentor("mentor1");
         Mentor mentor2 = new Mentor("mentor2");
-        attendee1List.registryObserver(mentor1);
-        attendee2List.registryObserver(mentor2);
-        attendee3List.registryObserver(mentor2);
+        attendee1List.registerObserver(mentor1);
+        attendee2List.registerObserver(mentor2);
+        attendee3List.registerObserver(mentor2);
 
         //When
         attendee1List.addTask("Task1");
