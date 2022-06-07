@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.awt.*;
+
 public class EBayTestingApp {
 
     public static void main(String[] args) {
@@ -13,6 +15,11 @@ public class EBayTestingApp {
 
         //Tutaj próbowałem automatycznego zaakceptowania warunków cookies - bez rezultatu
         //driver.findElement(By.id("gdpr-banner-accept")).click();
+
+        //albo
+
+       /* WebElement newElement = driver.findElement(By.id("gdpr-banner-accept"));
+        newElement.click();*/
 
         WebElement element = driver.findElement(By.name("_nkw"));
         element.sendKeys("Laptop");
