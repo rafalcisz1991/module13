@@ -4,6 +4,7 @@ import com.kodilla.testing2.config.WebDriverConfig;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,13 +30,14 @@ public class CrudAppTestSuite {
 
     @AfterEach
     public void cleanUpAfterTest() {
-        driver.quit();
+        driver.close();
     }
 
     @Test
     public void shouldCreateTrelloCard() throws Exception {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
+        driver.switchTo().alert().accept();
         assertTrue(checkTaskExistsInTrello(taskName));
     }
 
@@ -117,6 +119,9 @@ public class CrudAppTestSuite {
                             theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
                     buttonCreateCard.click();
                 });
+
+
+
         Thread.sleep(5000);
     }
 
