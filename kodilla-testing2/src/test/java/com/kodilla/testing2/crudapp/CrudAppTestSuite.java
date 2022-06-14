@@ -119,9 +119,6 @@ public class CrudAppTestSuite {
                             theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
                     buttonCreateCard.click();
                 });
-
-
-
         Thread.sleep(5000);
     }
 
