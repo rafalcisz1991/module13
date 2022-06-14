@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.idealized.log.Log;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
@@ -27,10 +30,10 @@ public class CrudAppTestSuite {
         generator = new Random();
     }
 
-    /*@AfterEach
+    @AfterEach
     public void cleanUpAfterTest() {
-        driver.close();
-    }*/
+        driver.quit();
+    }
 
     @Test
     public void shouldCreateTrelloCard() throws Exception {
@@ -117,6 +120,11 @@ public class CrudAppTestSuite {
                             theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
                     buttonCreateCard.click();
                 });
+
+
+        /*Log newLog = driver.manage().);
+        newLog.clear();
+        //driver.switchTo().window(c)*/
         Thread.sleep(5000);
     }
 
