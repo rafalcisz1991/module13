@@ -13,14 +13,6 @@ public class EBayTestingApp {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get("https://www.ebay.com/");
 
-        //Tutaj próbowałem automatycznego zaakceptowania warunków cookies - bez rezultatu
-        //driver.findElement(By.id("gdpr-banner-accept")).click();
-
-        //albo
-
-       /* WebElement newElement = driver.findElement(By.id("gdpr-banner-accept"));
-        newElement.click();*/
-
         WebElement element = driver.findElement(By.name("_nkw"));
         element.sendKeys("Laptop");
         element.submit();

@@ -27,6 +27,25 @@ public class CrudAppTestSuite {
         generator = new Random();
     }
 
+    /*@AfterEach
+    public void cleanUpAfterTest() {
+        driver.close();
+    }*/
+
+    @Test
+    public void shouldCreateTrelloCard() throws Exception {
+        String taskName = createCrudAppTestTask();
+        sendTestTaskToTrello(taskName);
+        assertTrue(checkTaskExistsInTrello(taskName));
+    }
+
+    @Test
+    public void shouldDeleteCreatedTask() throws Exception {
+        String taskName = createCrudAppTestTask();
+        deletingTask(taskName);
+        assertFalse(checkDeletingTask(taskName));
+    }
+
     private String createCrudAppTestTask() throws InterruptedException {
         final String XPATH_TASK_NAME = "//form[contains(@action,\"createTask\")]/fieldset[1]/input";
         final String XPATH_TASK_CONTENT = "//form[contains(@action,\"createTask\")]/fieldset[2]/textarea";
@@ -75,18 +94,8 @@ public class CrudAppTestSuite {
                 .anyMatch(theSpan -> theSpan.getText().equals(taskName));
 
         driverTrello.close();
+
         return result;
-    }
-
-    @Test
-    public void shouldCreateTrelloCard() throws Exception {
-        String taskName = createCrudAppTestTask();
-        deletingTask(taskName);
-        assertFalse(checkDeletingTask(taskName));
-
-        //sendTestTaskToTrello(taskName);
-        //assertTrue(checkTaskExistsInTrello(taskName));
-
     }
 
     private void sendTestTaskToTrello(String taskName) throws InterruptedException {
@@ -111,8 +120,10 @@ public class CrudAppTestSuite {
         Thread.sleep(5000);
     }
 
-    private boolean checkDeletingTask(String taskName) {
+    private boolean checkDeletingTask(String taskName) throws InterruptedException {
         boolean result;
+
+        Thread.sleep(5000);
 
         result = driver.findElements(By.xpath("//p[@class=\"datatable__field-value\"]")).stream()
                 .anyMatch(theSpan -> theSpan.getText().equals(taskName));
@@ -120,16 +131,19 @@ public class CrudAppTestSuite {
         return result;
     }
 
-    public void deletingTask(String taskName) {
+    public void deletingTask(String taskName) throws InterruptedException {
 
-        WebElement taskToDelete = driver.findElement(By.xpath("//p[contains(string(), " + taskName));
-        taskToDelete.findElement(By.xpath("//button[contains(string(), 'Delete')]")).click();
+        Thread.sleep(5000);
 
-        /*driver.findElements(By.xpath("//p[(@class=\"datatable__field-value\")]")).stream()
-                .filter(soughtTask -> soughtTask.getText().equals(taskName))
-                .forEach(deleteButton -> {
-                    WebElement deleteTask = deleteButton.findElement(By.xpath("//button[contains(string(), 'Delete')]"));
-                    deleteTask.click();
-                });*/
+        driver.findElements(
+               By.xpath("//form[@class=\"datatable__row\"]")).stream()
+               .filter(soughtTask ->
+                       soughtTask.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                               .getText().equals(taskName))
+               .forEach(foundTask -> {
+                   WebElement deleteButton =
+                           foundTask.findElement(By.xpath(".//button[contains(string(), 'Delete')]"));
+                   deleteButton.click();
+               });
     }
 }
