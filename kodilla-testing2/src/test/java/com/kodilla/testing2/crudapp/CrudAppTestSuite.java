@@ -34,13 +34,8 @@ public class CrudAppTestSuite {
     public void shouldCreateTrelloCard() throws Exception {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
-        driver.switchTo().alert().accept();
         assertTrue(checkTaskExistsInTrello(taskName));
-    }
-
-    @Test
-    public void shouldDeleteCreatedTask() throws Exception {
-        String taskName = createCrudAppTestTask();
+        //driver.switchTo().alert().accept();
         deletingTask(taskName);
         assertFalse(checkDeletingTask(taskName));
     }
@@ -68,6 +63,7 @@ public class CrudAppTestSuite {
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
         final String TRELLO_URL = "https://trello.com/login";
         boolean result = false;
+
         WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.CHROME);	// [1]
         driverTrello.get(TRELLO_URL);                                                // [2]
 
@@ -92,8 +88,8 @@ public class CrudAppTestSuite {
         result = driverTrello.findElements(By.xpath("//span")).stream()
                 .anyMatch(theSpan -> theSpan.getText().equals(taskName));
 
+        Thread.sleep(4000);
         driverTrello.close();
-
         return result;
     }
 
@@ -116,7 +112,9 @@ public class CrudAppTestSuite {
                             theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
                     buttonCreateCard.click();
                 });
+
         Thread.sleep(5000);
+        driver.switchTo().alert().accept();
     }
 
     private boolean checkDeletingTask(String taskName) throws InterruptedException {
