@@ -35,7 +35,6 @@ public class CrudAppTestSuite {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
-        //driver.switchTo().alert().accept();
         deletingTask(taskName);
         assertFalse(checkDeletingTask(taskName));
     }
